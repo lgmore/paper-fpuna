@@ -2,10 +2,17 @@
 %          spconf.sty  - ICASSP/ICIP LaTeX style file, and
 %          IEEEbib.bst - IEEE bibliography style file. cambio para probar
 % --------------------------------------------------------------------------
-\documentclass{article}
+\documentclass[spanish]{article}
 \usepackage{spconf,amsmath,graphicx}
 \usepackage{mathptmx}
-\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\selectlanguage{spanish}
 % Example definitions.
 % --------------------
 \def\x{{\mathbf x}}
@@ -13,7 +20,7 @@
 
 % Title.
 % ------
-\title{AUTHOR GUIDELINES FOR ICIP 2015 PROCEEDINGS MANUSCRIPTS}
+\title{OPTIMIZACIÓN MULTIOBJETIVO PARA LA MEJORA DEL CONTRASTE BASADA EN CLAHE.}
 %
 % Single address.
 % ---------------
@@ -58,25 +65,49 @@ in black ink.
 One, two, three, four, five
 \end{keywords}
 %
-\section{Introduction}
+\section{Introducción}
 \label{sec:intro}
 
-These guidelines include complete descriptions of the fonts, spacing, and
-related information for producing your proceedings manuscripts. Please follow
-them and if you have any questions, direct them 
-\texttt{info@icip2015.org}.
+Los aparatos médicos se pueden conectar a computadoras y digitalizar las imágenes que construyen \cite{garcia_fenoll,russ2010}; sin embargo, la captura de la imagen a través de éstos dispositivos no está exenta de problemas: la captura puede sufrir de adición de ruido, mucha oscuridad, bajo contraste, entre otros. Por tanto, es necesario realizar un procesamiento previo de manera a que las imágenes puedan ser analizadas posteriormente; ésto es particularmente importante para las imágenes médicas, debido a la cantidad de detalles finos e importantes que poseen.
 
-\section{Formatting your paper}
-\label{sec:format}
+Contrast Limited Adaptive Histogram Equalization (CLAHE) es un algoritmo de mejora de contraste local basado en la división de la imagen en bloques y la ecualización del histograma de cada bloque en forma independiente, el cual fué propuesto en \cite{Zuiderveld:1994:CLA:180895.180940}. CLAHE ha demostrado obtener buenos resultados principalmente en imágenes con bajo contraste \cite{balvant2011} e imágenes médicas \cite{saikat2011,shelda2013}, debido a que en este último grupo se priorizan los detalles de la imagen. Una característica importante de CLAHE es que posee dos parámetros de entrada que controlan la mejora del contraste que se obtiene como resultado. De manera a obtener una solución satisfactoria se deben escoger valores apropiados de éstos parámetros. Debido a que el rango de parámetros a elegir es sumamente amplio, se necesita de una metaheurística que permita encontrar valores de entrada de CLAHE que arrojen los resultados más satisfactorios de manera efectiva.
+\section{estado del arte}
 
-All printed material, including text, illustrations, and charts, must be kept
-within a print area of 178 mm (7 in.) wide by 229 mm (9 in.) high. Do
-not write or print anything outside the print area. The top margin must be 25 mm (1
-in.), except for the title page, and the left margin must be 19 mm (0.75 in.).  All {\it text} must be in a two-column format. Columns are to be 86 mm (3.39
-in.) wide, with a 6 mm (0.24 in.) space between them. Text must be
-fully justified.
+\section{contrast limited adaptive histogram equalization}
+\label{sec:clahe}
 
-\section{PAGE TITLE SECTION}
+El comportamiento natural en el ojo humano es el de evaluar la información que se muestra en una imagen, basándose en los componentes locales presentes. Por tanto es relevante realizar la mejora del contraste en base a los componentes locales de la imagen. En el Adaptive Histogram Equalization (AHE), éste método se implementa utilizando secciones rectangulares de la imagen denominadas \it{Regiones contextuales}
+
+\section{métricas de evaluación}
+\label{sec:metricas}
+
+\section{Formulación}
+\label{sec:formulacion}
+
+Dadas la imagen de entrada $I$ y el algoritmo $CLAHE$, se desea calcular el conjunto de soluciones $\mathscr{X}$ que maximice de manera simultánea los objetivos $\mathscr{H}$ y $\mathcal{C}$, como se muestra abajo:
+
+\begin{equation}\label{eq:fitness}
+    f(\overrightarrow{x}) = \{ f_1(\overrightarrow{x}), f_2(\overrightarrow{x}) \}
+\end{equation}
+
+donde:
+\begin{itemize}
+\item $\overrightarrow{x}=(\mathcal{R}_x, \mathcal{R}_y, \mathcal{C})$, donde $\mathcal{R}_x$ y $\mathcal{R}_y$ conforman la región contextual y $\mathscr{C}$ es el Clip Limit.
+\item $f_{1}(\overrightarrow{x})=\frac{\mathscr{H}(T)}{log_{2}L}$ es la Entropía normalizada de la imagen $T$, siendo $T$ la imagen mejorada por $CLAHE$ con los parámetros dados por $\overrightarrow{x}$, y $L$ la cantidad de grises disponibles.
+\item $f_{2}(\overrightarrow{x})=SSIM(I,T)$ es el Índice de Similitud Estructural.
+\end{itemize}
+
+sujeto a:
+
+\begin{itemize}
+\item $\mathcal{R}_x \in [2,..,M]$ en los números $\mathbb{N}$.
+\item $\mathcal{R}_y \in [2,..,N]$ en los números $\mathbb{N}$.
+\item $\mathscr{C} \in (0,1]$ en los números $\mathbb{R}$.
+\end{itemize}
+
+Ésto significa que los valores de $\mathcal{R}$ solamente pueden tomar valores enteros positivos entre $(2,2)$ y $(M,N)$ y que $\mathscr{C}$ puede tomar un valor mayor a cero y menor o igual a 1.
+
+\section{optimización de enjambre de partículas multiobjetivo}
 \label{sec:pagestyle}
 
 The paper title (on the first page) should begin 35 mm (1.38 in.) from the
@@ -87,7 +118,7 @@ affiliations may require two or more lines for this information. Please note
 that papers should not be submitted blind; include the authors' names on the
 PDF.
 
-\section{TYPE-STYLE AND FONTS}
+\section{propuesta}
 \label{sec:typestyle}
 
 To achieve the best rendering both in printed proceedings and electronic proceedings, we
@@ -106,7 +137,7 @@ The first paragraph in each section should not be indented, but all the
 following paragraphs within the section should be indented as these paragraphs
 demonstrate.
 
-\section{MAJOR HEADINGS}
+\section{resultados y discusión}
 \label{sec:majhead}
 
 Major headings, for example, ``1. Introduction'', should appear in all capital
@@ -120,15 +151,8 @@ not a colon.
 Subheadings should appear in lower case (initial word capitalized) in
 boldface. They should start at the left margin on a separate line.
  
-\subsubsection{Sub-subheadings}
-\label{sssec:subsubhead}
 
-Sub-subheadings, as in this paragraph, are discouraged. However, if you
-must use them, they should appear in lower case (initial word
-capitalized) and start at the left margin on a separate line, with paragraph
-text beginning on the following line.  They should be in italics.
-
-\section{PAPER FORMAT}
+\section{conclusiones}
 \label{sec:print}
 
 Format you paper for US letter, $8.5 \times 11$-in. paper.
