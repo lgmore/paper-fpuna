@@ -52,13 +52,7 @@
 \maketitle
 %
 \begin{abstract}
-The abstract should appear at the top of the left-hand column of text, about
-0.5 inch (12 mm) below the title area and no more than 3.125 inches (80 mm) in
-length.  Leave a 12 mm (0.5 in.) space between the end of the abstract and the
-beginning of the main text.  The abstract should contain about 100 to 150
-words, and should be identical to the abstract text submitted electronically
-along with the paper cover sheet.  All manuscripts must be in English, printed
-in black ink.
+Aquí va el abstract
 \end{abstract}
 %
 \begin{keywords}
@@ -88,10 +82,35 @@ A continuación se muestran las métricas de evaluación utilizadas como objetiv
 \subsection{entropía}
 \label{ssec:entropia}
 
-La {\it Entropía de la Información} es un coeficiente que arroja una medida de la aleatoriedad que se presenta en la señal que acarrea una imagen \cite{tsai2008information}
+La {\it Entropía de la Información} es un coeficiente que arroja una medida de la aleatoriedad que se presenta en la señal que acarrea una imagen \cite{tsai2008information}. Si medimos la entropía que arrojan 2 imágenes cualitativamente similares, podemos evaluar si existe una mejora en la cantidad de información que provee la imagen con el contraste mejorado. En las imágenes en escala de gris, la {\it Entropía} se define como un coeficiente que muestrá cuántos niveles de gris de los que se encuentran disponibles para representar la imagen se usan de manera efectiva \cite{kwok2006intensity}.
+
+De manera previa a la formulación de la {\it Entropía de la Información} en el contexto de las imágenes en escala de gris, necesitamos definir el histograma de una imagen, como se muestra en \eqref{eq:histograma}:
+
+\begin{equation}\label{eq:histograma}
+    \mathcal{H}=\{h_i \in [0...N]\mid i=0,1,...,L-1\}
+\end{equation}
+
+Donde $h_i$ es el conteo de courrencias del $i-esimo$ nivel de gris que compone la imagen; $N$ es el número total de pixeles de la imagen (nótese que $N=\sum_{i=0}^{L-1}h_i$); $L$ es el nivel de gris más alto utilizado para representar los niveles de gris en la imagen. En una escala de 8 bits, el nivel máximo representable es $2^8=256$ niveles posibles. Así, la distribución normal de niveles de gris del histograma se define como: 
+
+\begin{equation}\label{eq:distribucionormal}
+\mathcal{P}_i=\frac{h_i}{N}
+\end{equation}
+
+finalmente, podemos formular la entropía de la imagen dada como \eqref{eq:entropia}:
+
+\begin{equation}\label{eq:entropia}
+\mathscr{H}=-\sum_{i=0}^{L-1}\mathcal{P}_i log_2(\mathcal{P}_i) [bits]
+\end{equation}
+
+Es importante realizar la medición de la Entropía de la imagen, porque está directamente relacionada con la homogeneidad en el brillo medio \cite{108593}. 
+
+Ésta métrica por sí sola no es suficiente para evaluar la calidad de las soluciones encontradas, debido a que no mide la distorsión producida por la mejora en el contraste de la imagen. Por tanto, es necesario adoptar otra métrica, la cual se muestra en la sección siguiente. 
 
 \subsection{índice de similitud estructural}
 \label{ssec:ssim}
+
+El Índice de Similitud Estructural (SSIM) es un coeficiente con el cual se puede realizar la evaluación de cambios introducidos en la información estructural, por lo que da una medida adecuada de la distorsión producida en la imagen a consecuencia de la Mejora del Contraste. SSIM se basa en la noción de que existe una dependencia fuerte entre pixeles que conforman una vecindad \cite{kwok2013locally}
+
 \section{Formulación}
 \label{sec:formulacion}
 
@@ -121,123 +140,54 @@ sujeto a:
 \section{optimización de enjambre de partículas multiobjetivo}
 \label{sec:pagestyle}
 
-The paper title (on the first page) should begin 35 mm (1.38 in.) from the
-top edge of the page, centered, completely capitalized, and in Times 12-point,
-boldface type. The authors' name(s) and affiliation(s) appear below the title
-in capital and lower case letters. Papers with multiple authors and
-affiliations may require two or more lines for this information. Please note
-that papers should not be submitted blind; include the authors' names on the
-PDF.
-
 \section{propuesta}
 \label{sec:typestyle}
 
-To achieve the best rendering both in printed proceedings and electronic proceedings, we
-strongly encourage you to use Times-Roman font. In addition, this will give
-the proceedings a more uniform look. Use a font that is no smaller than nine
-point type throughout the paper, including figure captions.
-
-In nine point type font, capital letters are 2 mm high. {\bf If you use the
-smallest point size, there should be no more than 3.2 lines/cm (8 lines/in.)
-vertically.} This is a minimum spacing; 2.75 lines/cm (7 lines/in.) will make
-the paper much more readable. Larger type sizes require correspondingly larger
-vertical spacing. Please do not double-space your paper. TrueType or
-Postscript Type 1 fonts are preferred.
-
-The first paragraph in each section should not be indented, but all the
-following paragraphs within the section should be indented as these paragraphs
-demonstrate.
 
 \section{resultados y discusión}
 \label{sec:majhead}
 
-Major headings, for example, ``1. Introduction'', should appear in all capital
-letters, bold face if possible, centered in the column, with one blank line
-before, and one blank line after. Use a period (``.'') after the heading number,
-not a colon.
 
 \subsection{Subheadings}
 \label{ssec:subhead}
 
-Subheadings should appear in lower case (initial word capitalized) in
-boldface. They should start at the left margin on a separate line.
  
 
 \section{conclusiones}
 \label{sec:print}
 
-Format you paper for US letter, $8.5 \times 11$-in. paper.
-A4 paper is also acceptable, but please leave the extra 0.5 inch (12 mm)
-empty at the BOTTOM of the page and follow the top and left margins as
-specified. If the last page of your paper is only partially filled, arrange
-the columns so that they are evenly balanced if possible, rather than having
-one long column.
-
-In LaTeX, to start a new column (but not a new page) and help balance the
-last-page column lengths, you can use the command ``$\backslash$pagebreak'' as
-demonstrated on this page (see the LaTeX source below).
-
-\section{PAGE NUMBERING}
-\label{sec:page}
-
-Please do {\bf not} paginate your paper. Page numbers, session numbers, and
-conference identification will be inserted when the paper is included in the
-proceedings.
-
-\section{ILLUSTRATIONS, GRAPHS, AND PHOTOGRAPHS}
-\label{sec:illust}
-
-Illustrations must appear within the designated margins. They may span the two
-columns. If possible, position illustrations at the top of columns, rather
-than in the middle or at the bottom.  Caption and number every illustration.
-All halftone illustrations must be clear black and white prints. Colors may be
-used, but they should be selected so as to be readable when printed on a
-black-only printer.
-
-Since there are many ways, often incompatible, of including images (e.g., with
-experimental results) in a LaTeX document, below is an example of how to do
-this \cite{Lamp86}.
-
-\section{FOOTNOTES}
-\label{sec:foot}
-
-Use footnotes sparingly (or not at all!) and place them at the bottom of the
-column on the page on which they are referenced. Use Times 9-point type,
-single-spaced. To help your readers, avoid using footnotes altogether and
-include necessary peripheral observations in the text (within parentheses, if
-you prefer, as in this sentence).
 
 % Below is an example of how to insert images. Delete the ``\vspace'' line,
 % uncomment the preceding line ``\centerline...'' and replace ``imageX.ps''
 % with a suitable PostScript file name.
 % -------------------------------------------------------------------------
-\begin{figure}[t]
+%\begin{figure}[t]
 
-\begin{minipage}[b]{1.0\linewidth}
-  \centering
-  \centerline{\includegraphics[width=8.5cm]{Figures/image1}}
+%\begin{minipage}[b]{1.0\linewidth}
+%  \centering
+%  \centerline{\includegraphics[width=8.5cm]{Figures/image1}}
 %  \vspace{2.0cm}
-  \centerline{(a) Result 1}\medskip
-\end{minipage}
+%  \centerline{(a) Result 1}\medskip
+%\end{minipage}
 %
-\begin{minipage}[b]{.48\linewidth}
-  \centering
-  \centerline{\includegraphics[width=4.0cm]{Figures/image3}}
+%\begin{minipage}[b]{.48\linewidth}
+%  \centering
+%  \centerline{\includegraphics[width=4.0cm]{Figures/image3}}
 %  \vspace{1.5cm}
-  \centerline{(b) Results 3}\medskip
-\end{minipage}
-\hfill
-\begin{minipage}[b]{0.48\linewidth}
-  \centering
-  \centerline{\includegraphics[width=4.0cm]{Figures/image4}}
+%  \centerline{(b) Results 3}\medskip
+%\end{minipage}
+%\hfill
+%\begin{minipage}[b]{0.48\linewidth}
+%  \centering
+%  \centerline{\includegraphics[width=4.0cm]{Figures/image4}}
 %  \vspace{1.5cm}
-  \centerline{(c) Result 4}\medskip
-\end{minipage}
+%  \centerline{(c) Result 4}\medskip
+%\end{minipage}
 %
-\caption{Example of placing a figure with experimental results.}
-\label{fig:res}
+%\caption{Example of placing a figure with experimental results.}
+%\label{fig:res}
 %
-\end{figure}
+%\end{figure}
 
 
 % To start a new column (but not a new page) and help balance the last-page
