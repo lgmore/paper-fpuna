@@ -76,11 +76,19 @@ Contrast Limited Adaptive Histogram Equalization (CLAHE) es un algoritmo de mejo
 \section{contrast limited adaptive histogram equalization}
 \label{sec:clahe}
 
-El comportamiento natural en el ojo humano es el de evaluar la información que se muestra en una imagen, basándose en los componentes locales presentes. Por tanto es relevante realizar la mejora del contraste en base a los componentes locales de la imagen. En el Adaptive Histogram Equalization (AHE), éste método se implementa utilizando secciones rectangulares de la imagen denominadas \it{Regiones contextuales}
+El comportamiento natural en el ojo humano es el de evaluar la información que se muestra en una imagen, basándose en los componentes locales presentes. Por tanto es relevante realizar la mejora del contraste en base a los componentes locales de la imagen. En el Adaptive Histogram Equalization (AHE), éste método se implementa utilizando secciones rectangulares de la imagen denominadas {\it Regiones Contextuales}, cuyas dimensiones podemos definir como $(\mathcal{R}_x, \mathcal{R}_y)$. Luego se realiza la Ecualización del Histograma utilizando los pixeles que se encuentran dentro de la región contextual. Además se utiliza un esquema de interpolación bilineal, de manera a corregir inconsistencias en las fronteras entre regiones. Una de las características de AHE es que es capaz de aumentar la información contenida dentro de la imagen, a través de la mejora del contraste\cite{zimmerman1988evaluation}.
+
+AHE es un algoritmo que presenta problemas de amplificación del ruido, el cual es más visible en regiones en donde se encuentras niveles de gris relativamente homogéneos. Ésta limitación puede solucionarse si se utiliza un esquema de limitación de contraste dentro de las regiones contextuales. Por tanto, en CLAHE se implementa una limitación en el contraste a través de la limitación de la cantidad de pixeles que pueden alcanzar cierto nivel de gris dentro del histograma local, por lo que se corrige el problema de los picos en el histograma asociados a las regiones con niveles de gris homogéneos. Los pixeles que superan cierto umbral se recortan para eliminar picos, y se redistribuyen de forma equitativa a través del histograma ecualizado de la región contextual. Entonces podemos definir el {\it Clip Limit} $\mathcal{C}$ como un factor que está fuertemente relacionado con los contenidos del histograma. Si definimos un coeficiente $\mathcal{C}$ relativamente bajo, entonces los histogramas de las regiones contextuales no muestran picos, por lo que se obtiene una mejora del contraste relativamente suave. Si definimos un $\mathcal{C}$ alto, obtenemos un comportamiento de $CLAHE$ que resulta ser equivalente al algoritmo $AHE$.
+
+A continuación se muestran las métricas de evaluación utilizadas como objetivo para evaluar la calidad de las soluciones encontradas utilizando la metodología propuesta.
 
 \section{métricas de evaluación}
 \label{sec:metricas}
 
+\subsection{entropía}
+\label{ssec:entropia}
+\subsection{índice de similitud estructural}
+\label{ssec:ssim}
 \section{Formulación}
 \label{sec:formulacion}
 
