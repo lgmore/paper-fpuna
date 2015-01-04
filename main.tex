@@ -63,9 +63,9 @@ SMPSO,CLAHE,Entropía,SSIM, Mejora del Contraste, Optimización.
 \section{Introducción}
 \label{sec:intro}
 
-Los aparatos médicos se pueden conectar a computadoras y digitalizar las imágenes que construyen \cite{garcia_fenoll,russ2010}; sin embargo, la captura de la imagen a través de éstos dispositivos no está exenta de problemas: la captura puede sufrir de adición de ruido, mucha oscuridad, bajo contraste, entre otros. Por tanto, es necesario realizar un procesamiento previo de manera a que las imágenes puedan ser analizadas posteriormente; ésto es particularmente importante para las imágenes médicas, debido a la cantidad de detalles finos e importantes que poseen.
+En las imágenes médicas que se utilizan con propósitos de diagnóstico, es relevante realzar los detalles que presentan bajo contraste, aunque es también necesario preservar las características de éstos, teniendo en cuenta que son necesarios para el análisis. Las radiografías presentan características particulares de contraste: en el caso de las radiografías de tórax y las mamografías, el contraste puede ser bajo en ciertas regiones debido a las características de atenuación de los Rayos X \cite{chang1998image}.
 
-Contrast Limited Adaptive Histogram Equalization (CLAHE) es un algoritmo de mejora de contraste local basado en la división de la imagen en bloques y la ecualización del histograma de cada bloque en forma independiente, el cual fué propuesto en \cite{Zuiderveld:1994:CLA:180895.180940}. CLAHE ha demostrado obtener buenos resultados principalmente en imágenes con bajo contraste \cite{balvant2011} e imágenes médicas \cite{saikat2011,shelda2013}, debido a que en este último grupo se priorizan los detalles de la imagen. Una característica importante de CLAHE es que posee dos parámetros de entrada que controlan la mejora del contraste que se obtiene como resultado. De manera a obtener una solución satisfactoria se deben escoger valores apropiados de éstos parámetros. Debido a que el rango de parámetros a elegir es sumamente amplio, se necesita de una metaheurística que permita encontrar valores de entrada de CLAHE que arrojen los resultados más satisfactorios de manera efectiva.
+
 \section{estado del arte}
 
 \section{contrast limited adaptive histogram equalization}
