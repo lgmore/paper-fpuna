@@ -12,6 +12,7 @@
 \usepackage{amsfonts}
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
+\usepackage{color}
 \selectlanguage{spanish}
 % Example definitions.
 % --------------------
@@ -65,7 +66,11 @@ SMPSO,CLAHE,Entropía,SSIM, Mejora del Contraste, Optimización.
 
 En las imágenes médicas que se utilizan con propósitos de diagnóstico, es relevante realzar los detalles que presentan bajo contraste, aunque es también necesario preservar las características de éstos, teniendo en cuenta que son necesarios para el análisis. Las radiografías presentan características particulares de contraste: en el caso de las radiografías de tórax y las mamografías, el contraste puede ser bajo en ciertas regiones debido a las características de atenuación de los Rayos X \cite{chang1998image}. Es muy relevante mejorar las características de contraste de las imágenes médicas de manera a que puedan acentuar las características presentes que el especialista necesita analizar.
 
-Se pueden encontrar distintas técnicas de mejora del contraste, las cuales son en su mayoría transformaciones basadas en la Ecualización del Histograma\cite{russ2010image}. En su forma clásica, la Ecualización del Histograma se puede considerar como una transformación de enfoque global, debido a que la información de todos los pixeles que conforman la imagen se tienen en cuenta en el proceso de ecualización \cite{1419470}. Sin embargo, este enfoque no es aplicable para imágenes con características de contraste heterogéneas 
+Se pueden encontrar distintas técnicas de mejora del contraste, las cuales son en su mayoría transformaciones basadas en la Ecualización del Histograma\cite{russ2010image,841534}. En su forma clásica, la Ecualización del Histograma se puede considerar como una transformación de enfoque global, debido a que la información de todos los pixeles que conforman la imagen se tienen en cuenta en el proceso de ecualización \cite{1419470}. Sin embargo, este enfoque no es aplicable para imágenes con características de contraste heterogéneas \cite{841534}. Realizar la mejora del contraste teniendo en cuenta sectores de la imagen es más importante cuando se tienen detalles muy finos, por tanto se tuvo en cuenta un algoritmo de mejora local, el cual posee parámetros que necesitan de ajuste de manera a aumentar la utilidad de los resultados. Además es necesario considerar métricas que permitan evaluar los resultados en términos de realce y de calidad de detalles, por lo que es necesario considerar la mejora del contraste como un problema de optimización.
+
+Se generan imágenes con distintas relaciones entre contraste y distorsión, de manera a resaltar características distintas de las imágenes de prueba, lo cual resulta de utilidad para el análisis realizado por el especialista. El frente pareto generado ayuda a ver que los objetivos son contradictorios entre sí.
+
+El resto del trabajo se organiza de la siguiente manera: {\color{red} AGREGAR LA ORGANIZACION DEL TRABAJO}
 
 
 \section{estado del arte}
