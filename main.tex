@@ -63,7 +63,9 @@ SMPSO,CLAHE,Entropía,SSIM, Mejora del Contraste, Optimización.
 \section{Introducción}
 \label{sec:intro}
 
-En las imágenes médicas que se utilizan con propósitos de diagnóstico, es relevante realzar los detalles que presentan bajo contraste, aunque es también necesario preservar las características de éstos, teniendo en cuenta que son necesarios para el análisis. Las radiografías presentan características particulares de contraste: en el caso de las radiografías de tórax y las mamografías, el contraste puede ser bajo en ciertas regiones debido a las características de atenuación de los Rayos X \cite{chang1998image}.
+En las imágenes médicas que se utilizan con propósitos de diagnóstico, es relevante realzar los detalles que presentan bajo contraste, aunque es también necesario preservar las características de éstos, teniendo en cuenta que son necesarios para el análisis. Las radiografías presentan características particulares de contraste: en el caso de las radiografías de tórax y las mamografías, el contraste puede ser bajo en ciertas regiones debido a las características de atenuación de los Rayos X \cite{chang1998image}. Es muy relevante mejorar las características de contraste de las imágenes médicas de manera a que puedan acentuar las características presentes que el especialista necesita analizar.
+
+Se pueden encontrar distintas técnicas de mejora del contraste, las cuales son en su mayoría transformaciones basadas en la Ecualización del Histograma\cite{russ2010image}. En su forma clásica, la Ecualización del Histograma se puede considerar como una transformación de enfoque global, debido a que la información de todos los pixeles que conforman la imagen se tienen en cuenta en el proceso de ecualización \cite{1419470}. Sin embargo, este enfoque no es aplicable para imágenes con características de contraste heterogéneas 
 
 
 \section{estado del arte}
