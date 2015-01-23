@@ -34,7 +34,7 @@
 
 % Title.
 % ------
-\title{OPTIMIZACIÓN MULTIOBJETIVO BASADA EN LA SINTONIZACIÓN DE LOS PARÁMETROS DE CLAHE PARA OBTENER DISTINTOS NIVELES DE CONTRASTE EN RADIOGRAFIA DEL TORAX}
+\title{OPTIMIZACIÓN MULTIOBJETIVO BASADA EN LA SINTONIZACIÓN DE LOS PARÁMETROS DE CLAHE PARA OBTENER DISTINTOS NIVELES DE CONTRASTE EN IMÁGENES MÉDICAS}
 %\title{OPTIMIZACIÓN MULTIOBJETIVO PARA LA MEJORA DEL CONTRASTE BASADA EN CLAHE.}
 %
 % Single address.
@@ -67,21 +67,24 @@
 \maketitle
 %
 \begin{abstract}
-La mejora del contraste en imágenes médicas presenta desafíos importantes, debido a que se necesita realzar los detalles y también preservarlos, de forma a que la mejora sea de ayuda para análisis posteriores. Se propone un enfoque de mejora multiobjetivo basada en CLAHE, utilizando SMPSO como metaheurística, además de la Entropía y el SSIM como objetivos, de manera a maximizar el contraste y minimizar la distorsión de los resultados. Se obtienen distintos niveles de contraste en imágenes de radiografía del tórax, y así se resaltan distintos detalles de éstas. Los resultados obtenidos se analizan con ayuda de un especialista de manera a determinar la utilidad del enfoque, además se verifica que los objetivos son contradictorios.
+En determinadas imágenes médicas, es posible lograr una mejora de contraste a distintos niveles, de manera a resaltar distintas estructuras presentes en las mismas. Ésto podría resultar útil a los especialistas médicos para realizar diagnósticos más específicos. Se propone la sintonización de parámetros de Contrast Limited Adaptive Histogram Equalization, utilizando una metaheurística multiobjetiva. Los objetivos propuestos son maximizar la cantidad de información disponible y minimizar la distorsión en las imágenes resultantes de manera simultánea. Los resultados muestran un conjunto de soluciones o Frente Pareto, que representa a la imagen con distintos niveles de contraste y distintos niveles de compromiso entre Entropía e Índice de Similitud Estructural, lo que muestra que los objetivos son contradictorios. 
+%La mejora del contraste en imágenes médicas presenta desafíos importantes, debido a que se necesita realzar los detalles y también preservarlos, de forma a que la mejora sea de ayuda para análisis posteriores. Se propone un enfoque de mejora multiobjetivo basada en CLAHE, utilizando SMPSO como metaheurística, además de la Entropía y el SSIM como objetivos, de manera a maximizar el contraste y minimizar la distorsión de los resultados. Se obtienen distintos niveles de contraste en imágenes de radiografía del tórax, y así se resaltan distintos detalles de éstas. Los resultados obtenidos se analizan con ayuda de un especialista de manera a determinar la utilidad del enfoque, además se verifica que los objetivos son contradictorios.
 \end{abstract}
 %
 \begin{keywords}
-SMPSO,CLAHE,Entropía,SSIM, Mejora del Contraste, Optimización.
+SMPSO, CLAHE, Entropía, SSIM, Mejora del Contraste, Optimización.
 \end{keywords}
 %
 \section{Introducción}
 \label{sec:intro}
 
-En las imágenes médicas que se utilizan con propósitos de diagnóstico, es relevante realzar los detalles que presentan bajo contraste, aunque es también necesario preservar las características de éstos, teniendo en cuenta que son necesarios para el análisis. Las radiografías presentan características particulares de contraste: en el caso de las radiografías de tórax y las mamografías, el contraste puede ser bajo en ciertas regiones debido a las características de atenuación de los Rayos X \cite{chang1998image}. Es muy relevante mejorar las características de contraste de las imágenes médicas de manera a que puedan acentuar las características presentes que el especialista necesita analizar.
+Es de gran importancia realizar la Mejora del Contraste de imágenes de carácter médico, debido a que de esta manera es posible acentuar y mantener las características presentes en ellas. Las radiografías presentan características particulares de contraste, en el caso de radiografías del tórax y mamografías, pueden existir diferencias de constraste notorias debido a las características de atenuación de los Rayos X \cite{chang1998image}; además de que las técnicas de mejora de contraste pueden ayudar a reducir la dosis de radiación aplicada para obtener la imagen \cite{zhang2009mammograms}.
 
-Se pueden encontrar distintas técnicas de mejora del contraste, las cuales son en su mayoría transformaciones basadas en la Ecualización del Histograma\cite{russ2010image,841534}. En su forma clásica, la Ecualización del Histograma se puede considerar como una transformación de enfoque global, debido a que la información de todos los pixeles que conforman la imagen se tienen en cuenta en el proceso de ecualización \cite{1419470}. Sin embargo, este enfoque no es aplicable para imágenes con características de contraste heterogéneas \cite{841534}. Realizar la mejora del contraste teniendo en cuenta sectores de la imagen es más importante cuando se tienen detalles muy finos, por tanto se tuvo en cuenta un algoritmo de mejora local, el cual posee parámetros que necesitan de ajuste de manera a aumentar la utilidad de los resultados. Además es necesario considerar métricas que permitan evaluar los resultados en términos de realce y de calidad de detalles, por lo que es necesario considerar la mejora del contraste como un problema de optimización.
+Existen diversas propuestas de Mejora del Contraste basadas en transformaciones del Histograma \cite{1658094}. Los enfoques de mejora local demuestran ser sumamente útiles al momento de realzar detalles en imágenes médicas, y existen diversas propuestas que se centran en mejorar el contraste en radiografías \cite{1625082,4712472}. También existen propuestas de mejora basadas en metaheurísticas, como se ve en \cite{Hashemi20101816}, en el que se utilizan Algoritmos Genéticos, en \cite{morebrizuela2014} se utiliza un enfoque muy similar a la propuesta presentada, aunque se enfoca a un sólo objetivo, y solamente se obtiene un resultado por cada imagen original, o en \cite{Shanmugavadivu2014243}, en donde también se utiliza una metaheurística multiobjetiva; la principal diferencia radica en que nuestra propuesta se aplica de manera más efectiva en imágenes médicas, debido a que CLAHE muestra resultados satisfactorios en éste tipo de imágenes \cite{reza2004}, además de utilizar una métrica de evaluación relativamente sofisticada, . 
 
-Se generan imágenes con distintas relaciones entre contraste y distorsión, de manera a resaltar características distintas de las imágenes de prueba, lo cual resulta de utilidad para el análisis realizado por el especialista. El frente pareto generado ayuda a ver que los objetivos son contradictorios entre sí.
+%Se pueden encontrar distintas técnicas de mejora del contraste, las cuales son en su mayoría transformaciones basadas en la Ecualización del Histograma\cite{russ2010image,841534}. En su forma clásica, la Ecualización del Histograma se puede considerar como una transformación de enfoque global, debido a que la información de todos los pixeles que conforman la imagen se tienen en cuenta en el proceso de ecualización \cite{1419470}. Sin embargo, este enfoque no es aplicable para imágenes con características de contraste heterogéneas \cite{841534}. Realizar la mejora del contraste teniendo en cuenta sectores de la imagen es más importante cuando se tienen detalles muy finos, por tanto se tuvo en cuenta un algoritmo de mejora local, el cual posee parámetros que necesitan de ajuste de manera a aumentar la utilidad de los resultados. Además es necesario considerar métricas que permitan evaluar los resultados en términos de realce y de calidad de detalles, por lo que es necesario considerar la mejora del contraste como un problema de optimización.
+
+Se utilizará la metaheurística SMPSO (Speed constrained Multi-objective PSO) de manera a sintonizar los parámetros de entrada de CLAHE, de manera a obtener un grupo de imágenes contrastadas, las cuales serán evaluadas en cuanto a la ganancia de información proveída (Entropía) y distorsión introducida por la ecualización (SSIM). Se generan imágenes con distintas relaciones entre contraste y distorsión, de manera a resaltar características distintas de las imágenes de prueba, lo cual resulta de utilidad para el análisis realizado por el especialista.
 
 El resto del trabajo se organiza de la siguiente manera: {\color{red} AGREGAR LA ORGANIZACION DEL TRABAJO}
 
@@ -95,44 +98,40 @@ En esta sección se describe la combinación de técnicas que resuelve el proble
 
 \subsection{Contrast Limited Adaptive Histogram Equalization}
 
-Este enfoque de mejora de contraste presentado en \cite{Zuiderveld:1994:CLA:180895.180940} es una extensión del algoritmo original AHE \cite{pizer1987adaptive}; en ambos métodos se implementa una Ecualización del Histogama basada en {\it Regiones Contextuales} cuyas dimensiones podemos definir como  $(\mathcal{R}_x, \mathcal{R}_y)$, para realizar la ecualización en varios sectores de la imagen. Las inconsistencias entre fronteras de la imagen se corrigen aplicando interpolación bilineal. Gracias a éste esquema se logra aumentar la información que la imagen posee \cite{zimmerman1988evaluation}.
-
-AHE es un algoritmo que presenta problemas de amplificación del ruido, el cual es más visible en regiones en donde se encuentras niveles de gris relativamente homogéneos. Ésta limitación puede solucionarse si se utiliza un esquema de limitación de contraste dentro de las regiones contextuales. Por tanto, en CLAHE se implementa una limitación en el contraste a través de la limitación de la cantidad de pixeles que pueden alcanzar cierto nivel de gris dentro del histograma local, por lo que se corrige el problema de los picos en el histograma asociados a las regiones con niveles de gris homogéneos. Los pixeles que superan cierto umbral se recortan para eliminar picos, y se redistribuyen de forma equitativa a través del histograma ecualizado de la región contextual. Entonces podemos definir el {\it Clip Limit} $\mathcal{C}$ como un factor que está fuertemente relacionado con los contenidos del histograma. Si definimos un coeficiente $\mathcal{C}$ relativamente bajo, entonces los histogramas de las regiones contextuales no muestran picos, por lo que se obtiene una mejora del contraste relativamente suave. Si definimos un $\mathcal{C}$ alto, obtenemos un comportamiento de $CLAHE$ que resulta ser equivalente al algoritmo $AHE$.
-
-A continuación se muestran las métricas de evaluación utilizadas como objetivo para evaluar la calidad de las soluciones encontradas utilizando la metodología propuesta.
+Este enfoque de mejora de contraste presentado en \cite{Zuiderveld:1994:CLA:180895.180940} es una extensión del algoritmo original AHE \cite{pizer1987adaptive}; en ambos métodos se implementa una Ecualización del Histogama basada en {\it Regiones Contextuales} cuyas dimensiones podemos definir como  $(\mathcal{R}_x, \mathcal{R}_y)$, para realizar la ecualización en varios sectores de la imagen. Las inconsistencias entre fronteras de la imagen se corrigen aplicando interpolación bilineal. Gracias a éste esquema se logra aumentar la información que la imagen posee \cite{zimmerman1988evaluation}. Como el algoritmo original del AHE presenta problemas de amplificación del ruido, en CLAHE se implementa una limitación en el contraste a través de la limitación de la cantidad de pixeles que pueden alcanzar cierto nivel de gris dentro del histograma local. Entonces podemos definir el {\it Clip Limit} $\mathcal{C}$ como un factor que está fuertemente relacionado con los contenidos del histograma. Si definimos un coeficiente $\mathcal{C}$ relativamente bajo, entonces los histogramas de las regiones contextuales no muestran picos, por lo que se obtiene una mejora del contraste relativamente suave. Si definimos un $\mathcal{C}$ alto, obtenemos un comportamiento de $CLAHE$ que resulta ser equivalente al algoritmo $AHE$. En el contexto del trabajo propuesto, la selección de parámetros de CLAHE es fundamental para lograr resaltar los detalles en radiografías, y evitar una amplificación en el ruido indeseable \cite{pisano1998}.
 
 \section{métricas de evaluación}
 \label{sec:metricas}
 
-\subsection{entropía}
+Para cada resultado obtenido por CLAHE, es necesario utilizar métricas que permitan determinar cuantitativamente la calidad de las imágenes resultantes; es por esto que adoptamos dos coeficientes que consideramos importantes para las comparaciones entre resultados.
+
+\subsection{Entropía}
 \label{ssec:entropia}
 
-La {\it Entropía de la Información} es una medida de la aleatoriedad presente en una señal \cite{tsai2008information}. Al medir la Entropía de una imagen, se puede ver el desorden en la distribución de niveles de gris del histograma. A nivel de escalas de gris, la Entropía es un coeficiente que mide cuántos niveles de gris se utilizan efectivamente para representar la imagen analizada \cite{kwok2006intensity}. Para definir esta métrica, debemos definir primero el histograma de una imagen en niveles de gris, como se muestra abajo: 
+La {\it Entropía de la Información} es una medida de la aleatoriedad presente en una señal \cite{tsai2008information}. Al medir la Entropía de una imagen, se puede ver el desorden en la distribución de niveles de gris del histograma. Si definimos el histograma de una imagen en niveles de gris, como se muestra abajo: 
 
 \begin{equation}\label{eq:histograma}
     \mathcal{H}=\{h_i \in [0...N]\mid i=0,1,...,L-1\}
 \end{equation}
 
-donde $h_i$ es el recuento de apariciones del $i-esimo$ nivel de gris componente de la imagen; $N$ es el número total de pixeles que componen la imagen (aquí, $N=\sum_{i=0}^{L-1}h_i$); $L$ representa al nivel de gris más alto que puede utilizar para representar la imagen. Luego, la distribución normal de niveles de gris en el histograma se define como:
+donde $h_i$ es el recuento de apariciones del $i-esimo$ nivel de gris componente de la imagen; $N$ es el número total de pixeles que componen la imagen (aquí, $N=\sum_{i=0}^{L-1}h_i$); $L$ representa al nivel de gris más alto que puede utilizar para representar la imagen;  además, si la distribución normal de niveles de gris en el histograma se define como $\mathcal{P}_i=\frac{h_i}{N}$ entonces se puede definir la Entropía de la imagen como:
 
-\begin{equation}\label{eq:distribucionormal}
-\mathcal{P}_i=\frac{h_i}{N}
-\end{equation}
+%\begin{equation}\label{eq:distribucionormal}
+%\mathcal{P}_i=\frac{h_i}{N}
+%\end{equation}
 
-entonces se puede definir la Entropía de la imagen como:
+%entonces se puede definir la Entropía de la imagen como:
 
 \begin{equation}\label{eq:entropia}
 \mathscr{H}=-\sum_{i=0}^{L-1}\mathcal{P}_i log_2(\mathcal{P}_i) [bits]
 \end{equation}
 
-Esta métrica es interesante debido a que está fuertemente asociada al brillo medio de la imagen \cite{108593}. Necesitamos otra métrica para evaluar la distorsión de la imagen, debido a que la Entropía sólo mide el grado de mejora introducido; la misma se muestra en la sección siguiente. 
+Esta métrica es interesante debido a que está fuertemente asociada al brillo medio de la imagen \cite{108593}; este coeficiente nos ayuda a ver cuánto aumenta el contraste como consecuencia de la transformación de la imagen.
 
-\subsection{índice de similitud estructural}
+\subsection{Índice de similitud estructural}
 \label{ssec:ssim}
 
-El {Índice de Similitud Estructural (SSIM)} \cite{wang2004image} es un coeficiente que mide el grado de distorsión producida en una imagen resultante $T$ a consecuencia de aplicar una Mejora del Contraste a una imagen original $I$. SSIM se basa en la idea de que existe una dependencia importante entre pixeles que conforman una vecindad dentro de la imagen \cite{kwok2013locally}. 
-
-El Índice de Similitud Estructural (SSIM) es un coeficiente con el cual se puede realizar la evaluación de cambios introducidos en la información estructural, por lo que da una medida adecuada de la distorsión producida en la imagen a consecuencia de la Mejora del Contraste. SSIM se basa en la noción de que existe una dependencia fuerte entre pixeles que conforman una vecindad \cite{kwok2013locally}. SSIM se calcula por bloques, por lo que si definimos dos ventanas $I_x$ e $I_y$ para las imágenes original y resultante, respectivamente, se define el SSIM como se muestra abajo:
+El {Índice de Similitud Estructural (SSIM)} \cite{wang2004image} es un coeficiente que mide el grado de distorsión producida en una imagen resultante $T$ a consecuencia de aplicar una Mejora del Contraste a una imagen original $I$. SSIM se basa en la idea de que existe una dependencia importante entre pixeles que conforman una vecindad dentro de la imagen \cite{kwok2013locally}. SSIM se basa en la noción de que existe una dependencia fuerte entre pixeles que conforman una vecindad \cite{kwok2013locally}. SSIM se calcula por bloques, por lo que si definimos dos ventanas $I_x$ e $I_y$ para las imágenes original y resultante, respectivamente, se define el SSIM como se muestra abajo:
 
 \begin{equation}\label{eq:ssim}
 SSIM(I,T)=\frac{(2\mu_I\mu_T+C_1)(2\sigma_{IT}+C_2)}{(\mu_I^2+\mu_T^2+C_1)(\sigma_I^2+\sigma_T^2+C_2)}
