@@ -1,13 +1,123 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
-\bibitem{Lamp86}
-A.B. Smith, C.D. Jones, and E.F. Roberts,
-\newblock ``Article title,''
-\newblock {\em Journal}, vol. 62, pp. 291--294, January 1920.
+\bibitem{chang1998image}
+Dah-Chung Chang and Wen-Rong Wu,
+\newblock ``Image contrast enhancement based on a histogram transformation of
+  local standard deviation,''
+\newblock {\em Medical Imaging, IEEE Transactions on}, vol. 17, no. 4, pp.
+  518--531, 1998.
 
-\bibitem{C2}
-C.D. Jones, A.B. Smith, and E.F. Roberts,
-\newblock ``Article title,''
-\newblock in {\em Proceedings Title}. IEEE, 2003, vol.~II, pp. 803--806.
+\bibitem{1658094}
+ZhiYu Chen, B.R. Abidi, D.L. Page, and M.A. Abidi,
+\newblock ``Gray-level grouping (glg): an automatic method for optimized image
+  contrast enhancement - part ii: the variations,''
+\newblock {\em Image Processing, IEEE Transactions on}, vol. 15, no. 8, pp.
+  2303--2314, Aug 2006.
+
+\bibitem{1625082}
+I.~Frosio and N.A. Borghese,
+\newblock ``Real time enhancement of cephalometric radiographies,''
+\newblock in {\em Biomedical Imaging: Nano to Macro, 2006. 3rd IEEE
+  International Symposium on}, April 2006, pp. 972--975.
+
+\bibitem{4712472}
+Xuanqin Mou and Min Zhang,
+\newblock ``Nonlinear multi-scale contrast enhancement for chest radiograph,''
+\newblock in {\em Image Processing, 2008. ICIP 2008. 15th IEEE International
+  Conference on}, Oct 2008, pp. 3184--3187.
+
+\bibitem{5360176}
+N.R.S. Parveen and M.M. Sathik,
+\newblock ``Enhancement of bone fracture images by equalization methods,''
+\newblock in {\em Computer Technology and Development, 2009. ICCTD '09.
+  International Conference on}, Nov 2009, vol.~2, pp. 391--394.
+
+\bibitem{Hashemi20101816}
+Sara Hashemi, Soheila Kiani, Navid Noroozi, and Mohsen~Ebrahimi Moghaddam,
+\newblock ``An image contrast enhancement method based on genetic algorithm,''
+\newblock {\em Pattern Recognition Letters}, vol. 31, no. 13, pp. 1816 -- 1824,
+  2010,
+\newblock Meta-heuristic Intelligence Based Image Processing.
+
+\bibitem{morebrizuela2014}
+Luis~G. Moré, Marcos~A. Brizuela, José~Luis Vázquez~Noguera, Diego~P.
+  Pinto-Roa, and Horacio Legal~Ayala,
+\newblock ``Particle swarm optimization applied to parameter tuning of clahe
+  based on entropy and structural similarity index,''
+\newblock in {\em Proceedings of the 3rd. Conference of Computational
+  Interdisciplinary Sciences}, Oct 2014.
+
+\bibitem{Shanmugavadivu2014243}
+P.~Shanmugavadivu and K.~Balasubramanian,
+\newblock ``Particle swarm optimized multi-objective histogram equalization for
+  image enhancement,''
+\newblock {\em Optics \& Laser Technology}, vol. 57, no. 0, pp. 243 -- 251,
+  2014,
+\newblock Optical Image Processing.
+
+\bibitem{reza2004}
+AliM. Reza,
+\newblock ``Realization of the contrast limited adaptive histogram equalization
+  (clahe) for real-time image enhancement,''
+\newblock {\em Journal of VLSI signal processing systems for signal, image and
+  video technology}, vol. 38, no. 1, pp. 35--44, 2004.
+
+\bibitem{Zuiderveld:1994:CLA:180895.180940}
+Karel Zuiderveld,
+\newblock ``Graphics gems iv,''
+\newblock chapter Contrast Limited Adaptive Histogram Equalization, pp.
+  474--485. Academic Press Professional, Inc., San Diego, CA, USA, 1994.
+
+\bibitem{pizer1987adaptive}
+Stephen~M Pizer, E~Philip Amburn, John~D Austin, Robert Cromartie, Ari
+  Geselowitz, Trey Greer, Bart ter Haar~Romeny, John~B Zimmerman, and Karel
+  Zuiderveld,
+\newblock ``Adaptive histogram equalization and its variations,''
+\newblock {\em Computer vision, graphics, and image processing}, vol. 39, no.
+  3, pp. 355--368, 1987.
+
+\bibitem{tsai2008information}
+Du-Yih Tsai, Yongbum Lee, and Eri Matsuyama,
+\newblock ``Information entropy measure for evaluation of image quality,''
+\newblock {\em Journal of digital imaging}, vol. 21, no. 3, pp. 338--347, 2008.
+
+\bibitem{108593}
+A.~Khellaf, A.~Beghdadi, and H.~Dupoisot,
+\newblock ``Entropic contrast enhancement,''
+\newblock {\em Medical Imaging, IEEE Transactions on}, vol. 10, no. 4, pp.
+  589--592, Dec 1991.
+
+\bibitem{wang2004image}
+Zhou Wang, Alan~C Bovik, Hamid~R Sheikh, and Eero~P Simoncelli,
+\newblock ``Image quality assessment: from error visibility to structural
+  similarity,''
+\newblock {\em Image Processing, IEEE Transactions on}, vol. 13, no. 4, pp.
+  600--612, 2004.
+
+\bibitem{4938830}
+A.J. Nebro, J.J. Durillo, J.~Garcia-Nieto, C.A. Coello~Coello, F.~Luna, and
+  E.~Alba,
+\newblock ``Smpso: A new pso-based metaheuristic for multi-objective
+  optimization,''
+\newblock in {\em Computational intelligence in miulti-criteria
+  decision-making, 2009. mcdm '09. ieee symposium on}, March 2009, pp. 66--73.
+
+\bibitem{5586354}
+J.J. Durillo, A.J. Nebro, and E.~Alba,
+\newblock ``The jmetal framework for multi-objective optimization: Design and
+  architecture,''
+\newblock in {\em Evolutionary Computation (CEC), 2010 IEEE Congress on}, July
+  2010, pp. 1--8.
+
+\bibitem{opencv_library}
+G.~Bradski,
+\newblock ``Opencv,''
+\newblock {\em Dr. Dobb's Journal of Software Tools}, 2000.
+
+\bibitem{1419470}
+Zeyun Yu and C.~Bajaj,
+\newblock ``A fast and adaptive method for image contrast enhancement,''
+\newblock in {\em Image Processing, 2004. ICIP '04. 2004 International
+  Conference on}, Oct 2004, vol.~2, pp. 1001--1004 Vol.2.
 
 \end{thebibliography}
