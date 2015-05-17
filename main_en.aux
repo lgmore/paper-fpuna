@@ -4,7 +4,10 @@
 \catcode `>\active 
 \@nameuse{es@quoting}
 \citation{chang1998image}
+\citation{LTG}
+\citation{6963384}
 \citation{1658094}
+\citation{7056527}
 \citation{1625082}
 \citation{4712472}
 \citation{5360176}
@@ -15,17 +18,17 @@
 \citation{5360176}
 \citation{Zuiderveld:1994:CLA:180895.180940}
 \citation{pizer1987adaptive}
-\citation{tsai2008information}
 \select@language{spanish}
 \@writefile{toc}{\select@language{spanish}}
 \@writefile{lof}{\select@language{spanish}}
 \@writefile{lot}{\select@language{spanish}}
 \@writefile{toc}{\contentsline {section}{\numberline {1} INTRODUCTION}{1}}
 \newlabel{sec:intro}{{1}{1}}
-\@writefile{toc}{\contentsline {section}{\numberline {2} Contrast Limited Adaptive Histogram Equalization}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {2} Contrast Limited Adaptive Histogram Equalization - CLAHE}{1}}
 \newlabel{sec:clahe}{{2}{1}}
 \@writefile{toc}{\contentsline {section}{\numberline {3} EVALUATION METRICS}{1}}
 \newlabel{sec:metricas}{{3}{1}}
+\citation{tsai2008information}
 \citation{108593}
 \citation{wang2004image}
 \citation{4938830}
@@ -35,7 +38,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2} Structural Similarity Index}{2}}
 \newlabel{ssec:ssim}{{3.2}{2}}
 \newlabel{eq:ssim}{{2}{2}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Multi-objective $PSO-CLAHE$ algorithm.\relax }}{2}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces MOPSO-CLAHE\relax }}{2}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{alg:pso_clahe}{{1}{2}}
 \@writefile{toc}{\contentsline {section}{\numberline {4} FORMULATION OF THE PROBLEM POSED}{2}}
@@ -46,12 +49,15 @@
 \newlabel{eq:psobasico}{{4}{2}}
 \newlabel{eq:psobasico2}{{5}{2}}
 \newlabel{eq:dominanciapareto}{{6}{2}}
-\newlabel{eq:restricciondelta}{{7}{2}}
+\citation{4938830}
 \citation{5586354}
 \citation{opencv_library}
+\citation{7056527}
+\citation{LTG}
+\newlabel{eq:restricciondelta}{{7}{3}}
 \newlabel{eq:restricciondelta2}{{8}{3}}
 \newlabel{fig:particula_clahe}{{5}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Interaction between $CLAHE$ y $SMPSO$.\relax }}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Interaction between $CLAHE$ and $MOPSO$ particle.\relax }}{3}}
 \@writefile{toc}{\contentsline {section}{\numberline {6} Results and Discussion}{3}}
 \newlabel{sec:resultadosdiscusion}{{6}{3}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Par\IeC {\'a}metros de entrada para $SMPSO$}}{3}}
@@ -60,33 +66,39 @@
 \newlabel{sec:conclusion}{{7}{3}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline {a}{\ignorespaces Original Image\relax }}{4}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline {b}{\ignorespaces Resultant Image. $SSIM=0.9688$ $\mathscr  {H}=0.7922$\relax }}{4}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline {c}{\ignorespaces Resultant Image. $SSIM=0.6530$ $\mathscr  {H}=0.9933$\relax }}{4}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline {c}{\ignorespaces Pareto front graphic related to this image.\relax }}{4}}
 \newlabel{fig:resultado1}{{7}{4}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Result of multi-objective $PSO-CLAHE$. \relax }}{4}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline {a}{\ignorespaces Original Image\relax }}{4}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline {b}{\ignorespaces Resultant Image. $SSIM=0.8032$ $\mathscr  {H}=0.8549$\relax }}{4}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline {c}{\ignorespaces Resultant Image. $SSIM=0.6059$ $\mathscr  {H}=0.9163$\relax }}{4}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline {c}{\ignorespaces Pareto front graphic related to this image.\relax }}{4}}
 \newlabel{fig:resultado2}{{7}{4}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Results of multi-objective $PSO-CLAHE$. \relax }}{4}}
-\newlabel{fig:resultado3}{{7}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Pareto front for the images of \textbf  {Fig. 2}\relax }}{4}}
-\bibstyle{IEEEbib}
+\@writefile{lof}{\contentsline {subfigure}{\numberline {a}{\ignorespaces Original Image\relax }}{4}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline {b}{\ignorespaces Resultant Image. $SSIM=0.8423$ $\mathscr  {H}=0.9528$\relax }}{4}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline {c}{\ignorespaces Pareto front graphic related to this image.\relax }}{4}}
+\newlabel{fig:resultado2}{{7}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Results of multi-objective $PSO-CLAHE$. \relax }}{4}}
+\bibstyle{ieeetr}
 \bibdata{refs}
 \bibcite{chang1998image}{1}
-\bibcite{1658094}{2}
-\bibcite{1625082}{3}
-\bibcite{4712472}{4}
-\bibcite{5360176}{5}
-\bibcite{Hashemi20101816}{6}
-\bibcite{morebrizuela2014}{7}
-\bibcite{Shanmugavadivu2014243}{8}
-\bibcite{reza2004}{9}
-\bibcite{Zuiderveld:1994:CLA:180895.180940}{10}
-\bibcite{pizer1987adaptive}{11}
-\bibcite{tsai2008information}{12}
-\bibcite{108593}{13}
-\bibcite{wang2004image}{14}
-\bibcite{4938830}{15}
-\bibcite{5586354}{16}
-\bibcite{opencv_library}{17}
+\bibcite{LTG}{2}
+\bibcite{6963384}{3}
+\bibcite{1658094}{4}
+\bibcite{7056527}{5}
+\bibcite{1625082}{6}
+\bibcite{4712472}{7}
+\bibcite{5360176}{8}
+\bibcite{Hashemi20101816}{9}
+\bibcite{morebrizuela2014}{10}
+\bibcite{Shanmugavadivu2014243}{11}
+\bibcite{reza2004}{12}
+\bibcite{Zuiderveld:1994:CLA:180895.180940}{13}
+\bibcite{pizer1987adaptive}{14}
+\bibcite{tsai2008information}{15}
+\bibcite{108593}{16}
+\bibcite{wang2004image}{17}
+\bibcite{4938830}{18}
+\bibcite{5586354}{19}
+\bibcite{opencv_library}{20}
 \@writefile{toc}{\contentsline {section}{\numberline {8} References}{5}}

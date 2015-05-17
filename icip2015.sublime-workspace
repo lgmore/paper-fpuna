@@ -11,7 +11,7 @@
 			"file": "refs.bib",
 			"settings":
 			{
-				"buffer_size": 16451,
+				"buffer_size": 18535,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,7 +27,7 @@
 			"file": "main_en.tex",
 			"settings":
 			{
-				"buffer_size": 21711,
+				"buffer_size": 22370,
 				"line_ending": "Unix"
 			}
 		}
@@ -39,10 +39,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 138.0,
-		"last_filter": "",
+		"height": 75.0,
+		"last_filter": "package control: inst",
 		"selected_items":
 		[
+			[
+				"package control: inst",
+				"Package Control: Install Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -101,6 +105,8 @@
 	},
 	"file_history":
 	[
+		"/home/lg_more/.config/sublime-text-3/Packages/WordCount/WordCount.sublime-settings",
+		"/home/lg_more/.config/sublime-text-3/Packages/User/WordCount.sublime-settings",
 		"/tmp/javaee7-angular-1.0/src/main/java/com/cortez/samples/javaee7angular/pagination/PaginatedListWrapper.java",
 		"/tmp/javaee7-angular-1.0/src/main/webapp/script/person.js",
 		"/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.tex",
@@ -157,6 +163,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"table",
 			"radiographies",
 			"imagery",
 			"algoritmo",
@@ -220,28 +227,30 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16451,
+						"buffer_size": 18535,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16451,
-								16451
+								6072,
+								6072
 							]
 						],
 						"settings":
 						{
+							"WordCountShouldRun": true,
+							"WordCountSyntax": "bibtex",
 							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6035.0,
+						"translation.y": 2715.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -263,15 +272,16 @@
 						],
 						"settings":
 						{
+							"WordCountSyntax": "latex",
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1700.0,
+						"translation.y": 561.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -280,25 +290,27 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21711,
+						"buffer_size": 22370,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3065,
-								3065
+								3338,
+								3338
 							]
 						],
 						"settings":
 						{
+							"WordCountShouldRun": true,
+							"WordCountSyntax": "latex",
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1173.0,
+						"translation.y": 995.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -340,7 +352,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 368.0
+		"height": 112.0
 	},
 	"output.find_results":
 	{
@@ -349,6 +361,10 @@
 	"output.git":
 	{
 		"height": 143.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 112.0
 	},
 	"pinned_build_system": "",
 	"project": "icip2015.sublime-project",

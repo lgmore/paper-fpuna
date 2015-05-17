@@ -33,14 +33,16 @@
 \def\x{{\mathbf x}}
 \def\L{{\cal L}}
 
+\setlength{\textfloatsep}{10pt plus 1.0pt minus 3.0pt}
+
 % Title.
 % ------
-\title{MULTI-OBJECTIVE OPTIMIZATION BASED ON PARAMETER TUNING OF CLAHE TO ACHIEVE DIFFERENT CONTRAST LEVELS IN MEDICAL IMAGES}
+\title{PARAMETER TUNING OF CLAHE BASED ON MULTI-OBJECTIVE OPTIMIZATION TO ACHIEVE DIFFERENT CONTRAST LEVELS IN MEDICAL IMAGES}
 %\title{OPTIMIZACIÓN MULTIOBJETIVO PARA LA MEJORA DEL CONTRASTE BASADA EN CLAHE.}
 %
 % Single address.
 % ---------------
-\name{Luis G. Moré, Marcos A. Brizuela, Horacio Legal Ayala, Diego Pinto-Roa, José Luis Vázquez Noguera}
+\name{Luis G. Moré, Marcos A. Brizuela, Horacio Legal Ayala, Diego P. Pinto-Roa, José Luis Vázquez Noguera}
 \address{Facultad Politécnica - Universidad Nacional de Asunción}
 %
 % For example:
@@ -68,25 +70,25 @@
 \maketitle
 %
 \begin{abstract}
-In certain medical images, it is possible to achieve contrast enhancement at different levels, in order to highlight different structures present therein. This could be useful to medical specialists to perform more specific diagnoses, in chest radiographs and mammograms, where it is possible to highlight different details when contrast is enhanced. It is proposed a parameter tuning for Contrast Limited Adaptive Histogram Equalization(CLAHE), using a multi-objective meta-heuristic. The proposed objectives are to maximize the amount of information available (via Entropy) and minimize distortion in the resulting images (Structural Similarity Index) simultaneously. The results show a set of solutions or Pareto Set, which represents the image with different contrast levels and different levels of commitment between Entropy and Structural Similarity Index, which shows that these objectives are contradictory.
+In certain medical images, it is possible to achieve contrast enhancement at different levels, in order to highlight different structures present therein. This could be useful to medical specialists to perform more specific diagnoses, in chest radiographs and mammograms, where it is possible to highlight different details when contrast is enhanced. Parameter tuning for Contrast Limited Adaptive Histogram Equalization(CLAHE) using a multi-objective meta-heuristic (SMPSO) is proposed, where the objective functions are the maximization of the amount of information available (via Entropy) and minimization of distortion in the resulting images (Structural Similarity Index, SSIM) simultaneously. The results show a set of solutions or Pareto Set, which represents images with different contrast levels and different levels of commitment between Entropy and Structural Similarity Index, which shows that these objectives are contradictory. These enhanced images provide useful information for decision making of specialists.
 
 \end{abstract}
 %
 \begin{keywords}
-SMPSO, CLAHE, Entropy, SSIM, Contrast Enhancement, Optimization.
+SMPSO, CLAHE, Entropy, SSIM, Contrast Enhancement, Multiobjective Optimization.
 \end{keywords}
 %
 \section{INTRODUCTION}
 \label{sec:intro}
 
-It is very important to perform contrast enhancement of medical images, in order to emphasize and maintain the features present in them. radiographs show particular contrast features, such as in chest radiography and mammograms, because there might be notorious contrast differences because of the attenuation characteristics of X-Rays \cite{chang1998image}. 
+Improve contrast of medical images is a very important task in order to emphasize and maintain the features present within them. Radiographs show particular contrast features, such as in chest radiography and mammograms, because there might be notorious contrast differences because of the attenuation characteristics of X-Rays \cite{chang1998image}. 
 
-There are several proposals of contrast enhancement using histogram-based transformations \cite{1658094}. Local improvement approaches prove to be extremely useful when enhancing details in medical images, and there are various proposals focused on improving radiography contrast \cite{1625082,4712472,5360176}. In our proposal a meta-heuristic for optimization will be used, in order to tune input parameters of the contrast enhancement algorithm described in section \ref{sec:clahe}, in order to get groups of images with different contrast levels, which will be evaluated assessing the provided information gain and distortion introduced by the equalization process (section \ref{sec:metricas}). Generated images show different relationships between contrast and distortion, in order to highlight different features of the test images, which is useful for analysis performed by the specialist. In the literature there are proposals for improvement based on meta-heuristics, as shown in \cite{Hashemi20101816}, in which Genetic algorithms are used; in \cite{morebrizuela2014} a similar approach to ours is used, although it focuses on a single objective and only one result is obtained for each original image; or in \cite{Shanmugavadivu2014243} a multi-objective meta-heuristic is also used; the main difference is that our proposal is implemented more effectively in medical imaging because CLAHE shows satisfactory results in this type of images \cite{reza2004,5360176}, and show the results automatically.
+Important efforts are devoted to achieve Contrast Enhancement and automatically assess the quality of the results \cite{LTG,6963384,1658094,7056527}. Local improvement approaches prove to be extremely useful when enhancing details in medical images, and there are various proposals focused on improving radiography contrast \cite{1625082,4712472,5360176}. In our proposal a meta-heuristic for optimization will be used, in order to tune input parameters of the contrast enhancement algorithm described in section \ref{sec:clahe}; in this context, we will get groups of images with different contrast levels, which will be evaluated assessing the provided information gain and distortion introduced by the equalization process (section \ref{sec:metricas}). Obtained images show different relationships between contrast and distortion, in order to highlight different features of the test images, which is useful for analysis performed by the specialist. The literature shows several proposals for improvement based on meta-heuristics, as shown in \cite{Hashemi20101816}, where a Genetic Algorithm is used; in \cite{morebrizuela2014} a similar approach to ours is used, although it focuses on a single objective and only one result is obtained for each original image; or in \cite{Shanmugavadivu2014243} a multi-objective meta-heuristic based on weighted sums is also used; the main difference is that our proposal is implemented more effectively in medical imaging because CLAHE shows satisfactory results in this type of images \cite{reza2004,5360176}, and we obtain a set of non-dominated solutions, which leads to a pure multiobjective optimization approach.
 
 The rest of the paper is organized as follows: In section \ref{sec:clahe} the adopted contrast enhancement algorithm is described briefly; in section \ref{sec:metricas} it is shown the metrics for evaluating results; section \ref{sec:formulacion} formally poses the problem being solved; section \ref{sec:propuesta} shows how the optimization approach is applied to the contrast enhancement algorithm; then in the section \ref{sec:resultadosdiscusion}, the results are discussed, and finally in section \ref{sec:conclusion} the corresponding conclusions are detailed.
 
 
-\section{Contrast Limited Adaptive Histogram Equalization}
+\section{Contrast Limited Adaptive Histogram Equalization - CLAHE}
 \label{sec:clahe}
 
 This contrast enhancement approach presented in \cite{Zuiderveld:1994:CLA:180895.180940} is an extension of the original Adaptive Histogram Equalization (AHE) algorithm \cite{pizer1987adaptive}; both methods implement equalization based on Contextual Regions whose dimensions are defined by $(\mathcal{R}_x, \mathcal{R}_y)$ to perform equalization in several areas of the image. Inconsistencies between borders are corrected using bilinear interpolation. AHE presents problems of noise amplification, so in CLAHE a limitation is implemented in the contrast through limiting the number of pixels that can achieve certain grayscales within the local histogram; here the {\it Clip Limit} coefficient $\mathcal{C}$ is defined as a factor that is closely related to the contents of the histogram.
@@ -95,7 +97,7 @@ This contrast enhancement approach presented in \cite{Zuiderveld:1994:CLA:180895
 \section{EVALUATION METRICS}
 \label{sec:metricas}
 
-For each result obtained by CLAHE, metrics are needed to measure the quality of the resulting images; two coefficients were adopted that are important for comparisons between results:  {\it Entropy} as a contrast enhancement measure, and {\it Structural Similarity Index} as a measure of image distortion.  
+In order to evaluate the performance of CLAHE, metrics are needed to measure the quality of the resulting images; two coefficients were adopted that are important for comparisons between different results:  {\it Entropy} as a contrast enhancement measure, and {\it Structural Similarity Index} as a measure of image distortion.  
 
 \subsection{Entropy}
 \label{ssec:entropia}
@@ -103,15 +105,15 @@ For each result obtained by CLAHE, metrics are needed to measure the quality of 
 The {\it Information Entropy} is a measure of randomness of the image \cite{tsai2008information}. Entropy of the image is defined as:
 
 \begin{equation}\label{eq:entropia}
-\mathscr{H}=-\sum_{i=0}^{L-1}\mathcal{P}_i log_2(\mathcal{P}_i) [bits] \quad \mathscr{H} \in {0,..,log_2(L)} 
+\mathscr{H}=-\sum_{i=0}^{L-1}\mathcal{P}_i log_2(\mathcal{P}_i) [bits] \quad \mathscr{H} \in \{0,...,log_2(L)\} 
 \end{equation}
 
-Where $\mathcal{P}_i$ is the probability of occurrence of grays level $i$ in the histogram and $L$ is the maximum grayscale that can be used to represent the image. This metric is interesting because it is strongly associated with the average brightness of the image \cite{108593}; this ratio helps us see how the contrast increases as a result of the transformation of the image.
+Where $\mathcal{P}_i$ is the probability of occurrence of gray levels $i$ in the image and $L$ is the maximum grayscale that can be used to represent the image. This metric is interesting because it is strongly associated with the average brightness of the image \cite{108593}; this ratio helps us see how the contrast increases as a result of the transformation of the image.
 
 \subsection{Structural Similarity Index}
 \label{ssec:ssim}
 
-The {\it Structural Similarity Index (SSIM)} \cite{wang2004image} is a coefficient that measures the degree of distortion in a resulting image $T$ as a result of applying Contrast Enhancement to an original image $I$. SSIM is calculated by blocks, so given two image windows $I_x$ and $T_y$ for the original and resulting images, respectively, the SSIM is defined as shown below:
+The {\it Structural Similarity Index (SSIM)} \cite{wang2004image} is a coefficient that measures the degree of distortion in a resulting image $T$ as a result of applying ontrast enhancement to an original image $I$. $SSIM$ is calculated by blocks, so given two image windows $I_x$ and $T_y$ for the original and resulting images, respectively, the $SSIM$ is defined as shown below:
 
 \begin{equation}\label{eq:ssim}
 \resizebox{.9\hsize}{!}
@@ -120,7 +122,7 @@ $SSIM(I,T)=\frac{(2\mu_{I_x}\mu_{T_y}+C_1)(2\sigma_{I_xT_y}+C_2)}{(\mu_{I_x}^2+\
 }
 \end{equation}
 
-Where $\mu_{I_x}$ is the intensity average of $I_x$; $\mu_{T_y}$ is the intensity average of $T_y$; $\sigma_{I_x}^2$ and $\sigma_{T_y}^2$ are the intensity variances for $I_x$ and $T_y$, respectively; $\sigma_{I_x T_y}$ is the covariance between $I_x$ and $T_y$; $C_1=(K_1L^2)$, $L$ is the dynamic range of intensities of the pixels (256 for a grayscale image of 8 bits) and $K_1 \ll 1$ is a small constant; $C_2=(K_2 L)^2$, and $K_2 \ll 1$; and $K_2 \ll 1$; both $C_1$ y $C_2$ are constants that are used to stabilize the division in case the denominator approaches zero.
+Where $\mu_{I_x}$ is the intensity average of $I_x$; $\mu_{T_y}$ is the intensity average of $T_y$; $\sigma_{I_x}^2$ and $\sigma_{T_y}^2$ are the intensity variances for $I_x$ and $T_y$, respectively; $\sigma_{I_x T_y}$ is the covariance between $I_x$ and $T_y$; $C_1=(K_1L^2)$, $L$ is the dynamic range of intensities of the pixels (256 for a grayscale image of 8 bits) and $K_1 \ll 1$ is a small constant; $C_2=(K_2 L)^2$, and $K_2 \ll 1$; both $C_1$ y $C_2$ are constants that are used to stabilize the division in case the denominator approaches zero.
 
 \begin{algorithm}[H]
     \scriptsize
@@ -157,14 +159,14 @@ Where $\mu_{I_x}$ is the intensity average of $I_x$; $\mu_{T_y}$ is the intensit
         \EndWhile
     \Ensure $\mathscr{X}$
     \end{algorithmic}
-    \caption{Multi-objective $PSO-CLAHE$ algorithm.}
+    \caption{MOPSO-CLAHE}
     \label{alg:pso_clahe}
 \end{algorithm}
 
 \section{FORMULATION OF THE PROBLEM POSED}
 \label{sec:formulacion}
 
-Given an input image $I$, and a vector $\overrightarrow{x}=(\mathcal{R}_x, \mathcal{R}_y, \mathcal{C})$, where $\mathcal{R}_x$ and $\mathcal{R}_y$ are contextual regions and $\mathscr{C}$ is the {\it Clip Limit}, it is needed to calculate a set of $\mathscr{X}$ solutions, which simultaneously maximize the objectives $f_1$ and $f_2$, as shown below:
+Given an input image $I$ with $M \times N$ pixels, and a vector $\overrightarrow{x}=(\mathcal{R}_x, \mathcal{R}_y, \mathcal{C})$, where $\mathcal{R}_x$ and $\mathcal{R}_y$ are contextual regions and $\mathscr{C}$ is the {\it Clip Limit}, it is needed to calculate a set of $\mathscr{X}$ solutions, which simultaneously maximize the objectives $f_1$ and $f_2$, as shown below:
 
 \begin{equation}\label{eq:fitness}
     f(I, \overrightarrow{x}) = \{ f_1(I, \overrightarrow{x}), f_2(I, \overrightarrow{x}) \} \qquad f_1,f_2 \in [0,1]
@@ -172,10 +174,11 @@ Given an input image $I$, and a vector $\overrightarrow{x}=(\mathcal{R}_x, \math
 
 where:
 \begin{itemize}
+\item $T$ is the image enhanced by $CLAHE$ using the parameters $\overrightarrow{x}$ applied to $I$; this is $T=CLAHE(\overrightarrow{x},I)$.
 \item $f_{1}(I, \overrightarrow{x})=\frac{\mathscr{H}(T)}{log_{2}L}$ is the normalized Entropy of image $T$.
-\item $f_{2}(I, \overrightarrow{x})=SSIM(I,T)$ the $SSIM$ between $I$ y $T$.
+\item $f_{2}(I, \overrightarrow{x})=SSIM(I,T)$ the $SSIM$ between $I$ and $T$.
 
-Where $T$ is the image enhanced by $CLAHE(\overrightarrow{x},I)$ using the parameters $\overrightarrow{x}$ applied to $I$.
+
 
 \end{itemize}
 
@@ -190,24 +193,24 @@ Bounded to:
 \section{PROPOSAL}
 \label{sec:propuesta}
 
-The $SMPSO$ \cite{4938830} meta-heuristic is used, where potential solutions $\overrightarrow{x}=(\mathcal{R}_x, \mathcal{R}_y, \mathcal{C})$  are called {\it particles} and the set $\Omega$ is called {\it swarm}. Each particle $\overrightarrow{x_i}$ is updated at each generation $t$ according to the following equation:
+The $SMPSO$ \cite{4938830} meta-heuristic is used to calculate the potential solutions $\overrightarrow{x}=(\mathcal{R}_x, \mathcal{R}_y, \mathcal{C})$ at each generation. $SMPSO$ hands a set of solutions $\Omega$ called {\it swarm}, which contains {\it particles} that represent potential solutions. Each particle $\overrightarrow{x_i}$ is updated at each generation $t$ according to the following equation: 
 
 \begin{equation}\label{eq:psobasico}
 \overrightarrow{x_i}^t = \overrightarrow{x_i}^{(t-1)} + \overrightarrow{v_i}^t
 \end{equation}
 
-where the factor $\overrightarrow{v_i}$ is the velocity and is given by:
+where the element $\overrightarrow{v_i}$ is the velocity and is given by:
 
 
 \begin{equation}\label{eq:psobasico2}
 \overrightarrow{v_i}^t = \omega \cdot \overrightarrow{v_i}^{(t-1)} + C_1 \cdot r_1 \cdot (\overrightarrow{x_{p_i}}-\overrightarrow{x_i}) + C_2 \cdot r_2 \cdot (\overrightarrow{x_{g_i}}-\overrightarrow{x_i})
 \end{equation}
 
-Here, $\overrightarrow{x_{p_i}}$ is the best solution viewed by $\overrightarrow{x_i}$, $\overrightarrow{x_{g_i}}$ is the best particle (also known as the {{\it leader}) found by the whole swarm, $\omega$ is the inertia weight of the particle, $r_1$ y $r_2$ are two random numbers, $C_1$ and $C_2$ are parameters which control the effect of the local and global particles. If a particle is better than other, it is said that the first $dominates$ the second one; and this is defined as follows: $\overrightarrow{x_{g_i}} \succ \overrightarrow{x_i}$ if and only if
+Here, $\overrightarrow{x_{p_i}}$ is the best solution viewed by $\overrightarrow{x_i}$, $\overrightarrow{x_{g_i}}$ is the best particle (also known as the {{\it leader}) found by the whole swarm. $\omega$ is the inertia weight of the particle, $r_1$ y $r_2$ are two random numbers, $C_1$ and $C_2$ are parameters which control the effect of the local and global particles. If a particle is better than other, it is said that the first $dominates$ the second one; and this is defined as follows: $\overrightarrow{x_{a}} \succ \overrightarrow{x_b}$ if and only if
 
 \begin{equation}\label{eq:dominanciapareto}
-         \begin{cases}  f_i(I,\overrightarrow{x_{g}})  \geq f_i(I,\overrightarrow{x}) \forall i \in \{1,2\} \\
-                        f_i(I,\overrightarrow{x_{g}}) > f_i(I,\overrightarrow{x}) \exists i \in \{1,2\} \\
+         \begin{cases}  f_i(I,\overrightarrow{x_{a}})  \geq f_i(I,\overrightarrow{b}) \forall i \in \{1,2\} \\
+                        f_i(I,\overrightarrow{x_{a}}) > f_i(I,\overrightarrow{b}) \exists i \in \{1,2\} \\
          \end{cases}
 \end{equation}
 
@@ -226,22 +229,20 @@ where:
 delta_j= \frac{upper\_limit_j - lower\_limit_j}{2}
 \end{equation}
 
-The \textbf{Algorithm \ref{alg:pso_clahe}} shows how the proposal is implemented. The resulting images are evaluated according to the metrics \eqref{eq:entropia} and \eqref{eq:ssim}, and the best results measured by these form a Pareto set of solutions. The front shows a series of images with different contrast levels, so as to highlight particular features within. The interaction between $SMPSO$ particles and $CLAHE$ is  shown in \textbf {Fig. 1}. The parameters CLAHE receives are stored by a particle $(\mathcal{R}_x,\mathcal{R}_y, \mathscr{C})$, and for the original image $I$, and the processed image $T$, $\mathscr{H}$ and $SSIM$ are calculated in order to $\mathscr{H}$ the objective functions. The non-dominated solutions are stored in the Pareto set. This process is repeated until a stopping criterion is reached.
-
+The \textbf{Algorithm \ref{alg:pso_clahe}} shows how Multiobjective PSO-CLAHE ($MOPSO-CLAHE$) is implemented. The resulting images are evaluated according to the metrics \eqref{eq:entropia} and \eqref{eq:ssim}, and the best results measured by these form a Pareto set of solutions. The front shows different contrast levels of images, so as to highlight particular features within. The interaction between particles and $CLAHE$ is  shown in \textbf {Fig. 1}. The parameters received by $CLAHE$ are stored by a particle $(\mathcal{R}_x,\mathcal{R}_y, \mathscr{C})$, and for the original image $I$, and the processed image $T$, Entropy $\mathscr{H}$ and $SSIM$ are calculated. The non-dominated solutions are stored in the Pareto set. $MOPSO-CLAHE$ process is repeated until a stop criterion is reached. More details of $SMPSO$'s optimization proccess can be found in \cite{4938830}.
 \begin{minipage}[b]{1.0\linewidth}
-  \vspace{0.5cm}
+  \vspace{0.4cm}
   \centering
   \centerline{\includegraphics[height=7cm]{Figures/particula_clahe2}}
-  \vspace{0.5cm}
+  \vspace{0.4cm}
   \label{fig:particula_clahe}
-  \captionof{figure}{Interaction between $CLAHE$ y $SMPSO$.}
+  \captionof{figure}{Interaction between $CLAHE$ and $MOPSO$ particle.}
 \end{minipage}
 
 \section{Results and Discussion}
 \label{sec:resultadosdiscusion}
 
-The tests were performed using an Intel Core i3 dual core laptop, with 2.5GB RAM and Windows 7 32 bits. $SMPSO$ implementation is available at \cite{5586354}, meanwhile the corresponding implementations of $CLAHE$ and $\mathscr{H}$ y $SSIM$ are available at \cite{opencv_library}. Tests were performed using 16 images of chest radiographs and mammography, in order to assess the effectiveness of this proposal; they were downloaded from http://openi.nlm.nih.gov/. The initial parameters chosen for $SMPSO$ are listed in \textbf{Table \ref{table:parametrospso}}.
-
+ Tests were performed using 16 images of chest radiographs and mammography, in order to assess the effectiveness of this proposal; they were downloaded from http://openi.nlm.nih.gov/. $SMPSO$ implementation is available at \cite{5586354}, meanwhile the corresponding implementations of $CLAHE$, $\mathscr{H}$ and $SSIM$ are available at \cite{opencv_library}. The initial parameters chosen for $SMPSO$ are listed in \textbf{Table \ref{table:parametrospso}}.
 
 
 \begin{table}[h]
@@ -256,7 +257,7 @@ The tests were performed using an Intel Core i3 dual core laptop, with 2.5GB RAM
  \hline
  $lower\_limit_{{\mathscr{C}}}$ & $0$ & $upper\_limit_{{\mathscr{C}}}$ & $0,5$ \\
 \hline
-$\Omega$ & $100$ & $t$ & $100$ \\ 
+$\Omega$ & $100$ & $t_{max}$ & $100$ \\ 
 \hline
 $C_1$ $min$ & $1,5$ & $C_1$ $max$ & $2,5$ \\ 
 \hline
@@ -272,14 +273,14 @@ $r_2$ $min$ & $0,0$ & $r_2$ $max$ & $1,0$ \\ [1ex]
 \label{table:parametrospso}
 \end{table}
  
- For every test image, 30 executions of $SMPSO-CLAHE$ were performed. Approximately 300 Pareto solutions were obtained for every image, which represents a wide group of images at different levels of contrast and distortion, thereby facilitating further analysis. In \textbf {Fig. 2}  and \textbf {Fig. 3} there are 2 of the Pareto set solutions, in order to visually assess how contrast varies, and also the original image as reference. In \textbf {Fig. 4} it is noteworthy that there is an inverse relationship between objectives, this is, when $\mathscr{H}$ is increased, the $SSIM$ coefficient decreases; this means that both metrics are complementary in order to maintain the compromise between contrast enhancement and distortion minimization. From the Pareto set it is possible to obtain images which allow to visualize different details while the contrast changes. It is also remarkable that the soft tissues are better seen in chest radiographs when certain contrast is reached (see \textbf {Fig.} 2b, 2c). A similar effect is achieved in mammograms (see \textbf {Fig.} 3b, 3c), in which potential injuries are more visible, but the fine details are preserved successfully. In this proposal, a significant amount of resulting images are obtained, with different relations between contrast and distortion, in an automatic manner, which represents an advantage.
+ For every test image, 30 executions of $MOPSO-CLAHE$ were performed. Approximately 300 Pareto solutions were obtained for every image, which represents a wide group of images at different levels of contrast and distortion, thereby facilitating further analysis. In \textbf {Fig. 2,3,4} there are 2 of the Pareto set solutions, in order to visually assess how contrast varies, and also the original image as reference. In \textbf {Fig. 2c,3c,4c} it is noteworthy that there is an inverse relationship between objectives, this is, when $\mathscr{H}$ is increased, the $SSIM$ coefficient decreases; this means that both metrics are complementary in order to maintain the compromise between contrast enhancement and distortion minimization. From the Pareto set it is possible to obtain images which allow to visualize different details while the contrast changes. It is also remarkable that the soft tissues are better seen in chest radiographs when certain contrast is reached (see \textbf {Fig. 2b,4b}). A similar effect is achieved in mammograms (see \textbf {Fig. 3b}), in which potential injuries are more visible, but the fine details are preserved successfully. In this proposal, a significant amount of resulting images are obtained, with different relations between contrast and distortion, in an automatic manner, which represents an advantage because it can lead to better diagnoses.
 
 
 \section{conclusions}
 \label{sec:conclusion}
-A meta-heuristic algorithm is presented which maximizes simultaneously contrast by means of Entropy and Structural Similarity Index; with the latter it is possible to minimize image distortion, in medical images context, specifically in chest radiographs and mammograms. Experimental results show a set of solutions at different contrast levels, and allowing to highlight different structures. This would allow medical specialists to handle different visualization options automatically, which might be useful for diagnostics.
+A multiobjective meta-heuristic algorithm is presented which maximizes simultaneously contrast by means of Entropy and Structural Similarity Index; with the latter it is possible to minimize image distortion, in medical images context, specifically in chest radiographs and mammograms. Experimental results show a set of solutions at different contrast levels, and allowing to highlight different structures. This would allow medical specialists to handle different visualization options automatically, which is useful for diagnostics.
 
-The authors are still executing tests with several images found in the search engine. As future work it might be useful to adopt new meta-heuristics, such as multi-objective genetic algorithms.
+The authors are still executing tests with several images found in the search engine. As future work it might be useful to adopt new meta-heuristics, such as multi-objective genetic algorithms, and take into account metrics based in high order statistics, as seen in \cite{7056527}, and local saliency maps based metrics, as in \cite{LTG}.
 
 
 
@@ -306,8 +307,8 @@ The authors are still executing tests with several images found in the search en
   \hspace{1pt}
    \begin{minipage}[t]{0.3\linewidth}  
    		\centering
-        \includegraphics[width=4.1cm]{Figures/738-100_IM-0002-1001.png}
-   		\captionof{subfigure}{Resultant Image. $SSIM=0.6530$ $\mathscr{H}=0.9933$}
+        \includegraphics[width=6cm]{Figures/pareto_100_IM-0002-1001.png}
+   		\captionof{subfigure}{Pareto front graphic related to this image.}
   	\end{minipage}
   \vspace{0.5cm}
     \label{fig:resultado1}
@@ -328,10 +329,11 @@ The authors are still executing tests with several images found in the search en
         \includegraphics[width=3cm]{Figures/11608-3715982_IJMPO-34-47-g001.png}
    		\captionof{subfigure}{Resultant Image. $SSIM=0.8032$ $\mathscr{H}=0.8549$}
   	\end{minipage}
+    \vspace{0.5cm}
    \begin{minipage}[t]{0.3\linewidth}  
    		\centering
-        \includegraphics[width=3cm]{Figures/11806-3715982_IJMPO-34-47-g001.png}
-   		\captionof{subfigure}{Resultant Image. $SSIM=0.6059$ $\mathscr{H}=0.9163$}
+        \includegraphics[width=7cm]{Figures/pareto_IJMPO-34-47-g001.png}
+   		\captionof{subfigure}{Pareto front graphic related to this image.}
   	\end{minipage}
   \vspace{0.5cm}
     \label{fig:resultado2}
@@ -340,27 +342,53 @@ The authors are still executing tests with several images found in the search en
 \end{minipage}
 
 \begin{minipage}[b]{1.0\linewidth}
-
-   \begin{minipage}[b]{1.0\linewidth}  
-   		\centering
-        \includegraphics[height=7.5cm]{Figures/pareto-chest.jpg}
-   		%\captionof{subfigure}{Frente Pareto de la \textbf{Fig. 2}}
-  	\end{minipage}
-   \hspace{1pt}
-  % \begin{minipage}[b]{0.48\linewidth}  
-  % 		\centering
-  %      \includegraphics[height=6cm, width=10cm]{Figures/pareto-mamografia.jpg}
-  % 		\captionof{subfigure}{Frente Pareto de la \textbf{Fig. 3}}
-  %	\end{minipage}
+  
+   \begin{minipage}[t]{0.3\linewidth}  
+        \centering
+        \includegraphics[width=3cm]{Figures/1000_IM-0003-1001.png}
+        \captionof{subfigure}{Original Image}
+    \end{minipage}
+  \hspace{1pt}
+   \begin{minipage}[t]{0.3\linewidth}  
+        \centering
+        \includegraphics[width=3cm]{Figures/8178-1000_IM-0003-1001.png}
+        \captionof{subfigure}{Resultant Image. $SSIM=0.8423$ $\mathscr{H}=0.9528$}
+    \end{minipage}
+    \vspace{0.5cm}
+   \begin{minipage}[t]{0.3\linewidth}  
+        \centering
+        \includegraphics[width=7cm]{Figures/pareto_1000_IM-0003-1001.png}
+        \captionof{subfigure}{Pareto front graphic related to this image.}
+    \end{minipage}
   \vspace{0.5cm}
-    \label{fig:resultado3}
-  \captionof{figure}{Pareto front for the images of  \textbf {Fig. 2}}.
+    \label{fig:resultado2}
+  \captionof{figure}{Results of multi-objective $PSO-CLAHE$. }
 
 \end{minipage}
 
+% \begin{minipage}[b]{1.0\linewidth}
+
+%    \begin{minipage}[b]{1.0\linewidth}  
+%    		\centering
+%         \includegraphics[height=7.5cm]{Figures/pareto-chest.jpg}
+%    		%\captionof{subfigure}{Frente Pareto de la \textbf{Fig. 2}}
+%   	\end{minipage}
+%    \hspace{1pt}
+%   % \begin{minipage}[b]{0.48\linewidth}  
+%   % 		\centering
+%   %      \includegraphics[height=6cm, width=10cm]{Figures/pareto-mamografia.jpg}
+%   % 		\captionof{subfigure}{Frente Pareto de la \textbf{Fig. 3}}
+%   %	\end{minipage}
+%   \vspace{0.5cm}
+%     \label{fig:resultado3}
+%   \captionof{figure}{Pareto front for the images of  \textbf {Fig. 2}}.
+
+% \end{minipage}
+
 
 \twocolumn
-\bibliographystyle{IEEEbib}
+%\bibliographystyle{IEEEbib}
+\bibliographystyle{ieeetr}
 \bibliography{refs}
 
 
