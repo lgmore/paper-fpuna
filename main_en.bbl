@@ -106,4 +106,9 @@ J.~Durillo, A.~Nebro, and E.~Alba, ``The jmetal framework for multi-objective
 \bibitem{opencv_library}
 G.~Bradski, ``Opencv,'' {\em Dr. Dobb's Journal of Software Tools}, 2000.
 
+\bibitem{coello2002evolutionary}
+C.~A.~C. Coello, D.~A. Van~Veldhuizen, and G.~B. Lamont, {\em Evolutionary
+  algorithms for solving multi-objective problems}, vol.~242.
+\newblock Springer, 2002.
+
 \end{thebibliography}

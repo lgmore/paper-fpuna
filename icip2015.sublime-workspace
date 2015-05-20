@@ -27,7 +27,7 @@
 			"file": "main_en.tex",
 			"settings":
 			{
-				"buffer_size": 22370,
+				"buffer_size": 23207,
 				"line_ending": "Unix"
 			}
 		}
@@ -247,7 +247,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2715.0,
+						"translation.y": 284.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -290,15 +290,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 22370,
+						"buffer_size": 23207,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3338,
-								3338
+								10939,
+								10939
 							]
 						],
 						"settings":
@@ -310,7 +310,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 995.0,
+						"translation.y": 3213.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

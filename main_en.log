@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.1)  17 MAY 2015 15:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.1)  19 MAY 2015 21:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -536,25 +536,22 @@ Package: subfig 2005/06/28 ver: 1.3 subfig package
 ) (/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.aux
 LaTeX Info: Redefining \. on input line 21.
 LaTeX Info: Redefining \% on input line 21.
-
-LaTeX Warning: Label `fig:resultado2' multiply defined.
-
 )
 \openout1 = `main_en.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 67.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 71.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -609,158 +606,202 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \. on input line 67.
-LaTeX Info: Redefining \% on input line 67.
+LaTeX Info: Redefining \. on input line 71.
+LaTeX Info: Redefining \% on input line 71.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 70.
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 70
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 74.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 74
 .
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 70
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 74
 .
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 70
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 74
 .
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 70
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 74
 .
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 70.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 74.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 70.
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 70.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 74.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 74.
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (12.38132pt too wide) in paragraph at lines 70--70
+Overfull \hbox (12.38132pt too wide) in paragraph at lines 74--74
  [][] 
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 76.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 77.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 81.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 94.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 98.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 94.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 98.
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 
 ]
+Underfull \hbox (badness 3514) in paragraph at lines 196--197
+[]\OT1/ptm/m/n/10 The \OT1/ptm/b/n/10 Al-go-rithm 1[] \OT1/ptm/m/n/10 shows how
+ Multi-objective PSO-
+ []
+
+[2]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 130.
-[2] <Figures/particula_clahe2.jpg, id=22, 722.7pt x 710.655pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 201.
+<Figures/particula_clahe2.jpg, id=22, 722.7pt x 710.655pt>
 File: Figures/particula_clahe2.jpg Graphic file (type jpg)
 <use Figures/particula_clahe2.jpg>
-Package pdftex.def Info: Figures/particula_clahe2.jpg used on input line 236.
-(pdftex.def)             Requested size: 202.54208pt x 199.16928pt.
+Package pdftex.def Info: Figures/particula_clahe2.jpg used on input line 238.
+(pdftex.def)             Requested size: 173.60593pt x 170.71652pt.
 
-Underfull \hbox (badness 2119) in paragraph at lines 245--246
+Overfull \hbox (10.00002pt too wide) in paragraph at lines 235--243
+[][] 
+ []
+
+
+Underfull \hbox (badness 2119) in paragraph at lines 247--248
 []\OT1/ptm/m/n/10 Tests we-re per-for-med using 16 ima-ges of chest ra-
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 1062) in paragraph at lines 281--282
-[]\OT1/ptm/m/n/10 A mul-ti-ob-jec-ti-ve meta-heuristic al-go-rithm is pre-sen-t
-ed
+[3 </home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/Figures/particula_clahe2.
+jpg>] (/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.bbl
+Underfull \hbox (badness 1142) in paragraph at lines 110--113
+\OT1/ptm/m/n/10 La-mont, \OT1/ptm/m/it/10 Evo-lu-tio-nary al-go-rithms for sol-
+ving multi-
  []
 
-[3 </home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/Figures/particula_clahe2.
-jpg>] <Figures/100_IM-0002-1001.png, id=26, 513.92pt x 421.575pt>
+) [4] <Figures/100_IM-0002-1001.png, id=29, 513.92pt x 421.575pt>
 File: Figures/100_IM-0002-1001.png Graphic file (type png)
 <use Figures/100_IM-0002-1001.png>
-Package pdftex.def Info: Figures/100_IM-0002-1001.png used on input line 298.
+Package pdftex.def Info: Figures/100_IM-0002-1001.png used on input line 303.
 (pdftex.def)             Requested size: 116.65646pt x 95.69296pt.
-<Figures/1182-100_IM-0002-1001.png, id=27, 513.92pt x 421.575pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 304--304
+[]\OT1/ptm/m/n/10 a: |Ori-gi-nal Ima-ge. $\OML/ztmcm/m/it/10 SSIM$\OT1/ptm/m/n/
+10 =1.0
+ []
+
+<Figures/1182-100_IM-0002-1001.png, id=30, 513.92pt x 421.575pt>
 File: Figures/1182-100_IM-0002-1001.png Graphic file (type png)
 <use Figures/1182-100_IM-0002-1001.png>
 Package pdftex.def Info: Figures/1182-100_IM-0002-1001.png used on input line 3
-04.
+09.
 (pdftex.def)             Requested size: 116.65646pt x 95.69296pt.
-<Figures/pareto_100_IM-0002-1001.png, id=28, 639.89063pt x 401.24907pt>
+
+Underfull \hbox (badness 4060) in paragraph at lines 310--310
+[]\OT1/ptm/m/n/10 b: |Re-sul-tant Ima-ge. $\OML/ztmcm/m/it/10 SSIM$\OT1/ptm/m/n
+/10 =0.9688
+ []
+
+<Figures/pareto_100_IM-0002-1001.png, id=31, 639.89063pt x 401.24907pt>
 File: Figures/pareto_100_IM-0002-1001.png Graphic file (type png)
 <use Figures/pareto_100_IM-0002-1001.png>
 Package pdftex.def Info: Figures/pareto_100_IM-0002-1001.png used on input line
- 310.
+ 315.
 (pdftex.def)             Requested size: 170.71652pt x 107.04683pt.
 
-Overfull \hbox (18.77727pt too wide) in paragraph at lines 310--311
+Overfull \hbox (18.77727pt too wide) in paragraph at lines 315--316
  [][] 
  []
 
-<Figures/3715982_IJMPO-34-47-g001.png, id=29, 505.89pt x 810.02625pt>
+<Figures/3715982_IJMPO-34-47-g001.png, id=32, 505.89pt x 810.02625pt>
 File: Figures/3715982_IJMPO-34-47-g001.png Graphic file (type png)
 <use Figures/3715982_IJMPO-34-47-g001.png>
 Package pdftex.def Info: Figures/3715982_IJMPO-34-47-g001.png used on input lin
-e 323.
+e 330.
 (pdftex.def)             Requested size: 85.35826pt x 136.6644pt.
-<Figures/11608-3715982_IJMPO-34-47-g001.png, id=30, 505.89pt x 810.02625pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--331
+[]\OT1/ptm/m/n/10 a: |Ori-gi-nal Ima-ge. $\OML/ztmcm/m/it/10 SSIM$\OT1/ptm/m/n/
+10 =1.0
+ []
+
+<Figures/11608-3715982_IJMPO-34-47-g001.png, id=33, 505.89pt x 810.02625pt>
 File: Figures/11608-3715982_IJMPO-34-47-g001.png Graphic file (type png)
 <use Figures/11608-3715982_IJMPO-34-47-g001.png>
 Package pdftex.def Info: Figures/11608-3715982_IJMPO-34-47-g001.png used on inp
-ut line 329.
+ut line 336.
 (pdftex.def)             Requested size: 85.35826pt x 136.6644pt.
-<Figures/pareto_IJMPO-34-47-g001.png, id=31, 639.89063pt x 423.83344pt>
+
+Underfull \hbox (badness 4060) in paragraph at lines 337--337
+[]\OT1/ptm/m/n/10 b: |Re-sul-tant Ima-ge. $\OML/ztmcm/m/it/10 SSIM$\OT1/ptm/m/n
+/10 =0.8032
+ []
+
+<Figures/pareto_IJMPO-34-47-g001.png, id=34, 639.89063pt x 423.83344pt>
 File: Figures/pareto_IJMPO-34-47-g001.png Graphic file (type png)
 <use Figures/pareto_IJMPO-34-47-g001.png>
 Package pdftex.def Info: Figures/pareto_IJMPO-34-47-g001.png used on input line
- 335.
+ 342.
 (pdftex.def)             Requested size: 199.16928pt x 131.9173pt.
 
-Overfull \hbox (47.23003pt too wide) in paragraph at lines 335--336
+Overfull \hbox (47.23003pt too wide) in paragraph at lines 342--343
  [][] 
  []
 
 
-Overfull \hbox (10.00002pt too wide) in paragraph at lines 319--343
-[][] 
+Overfull \hbox (10.00002pt too wide) in paragraph at lines 326--352
+[][]
  []
 
-<Figures/1000_IM-0003-1001.png, id=32, 513.92pt x 626.34pt>
+<Figures/1000_IM-0003-1001.png, id=35, 513.92pt x 626.34pt>
 File: Figures/1000_IM-0003-1001.png Graphic file (type png)
 <use Figures/1000_IM-0003-1001.png>
-Package pdftex.def Info: Figures/1000_IM-0003-1001.png used on input line 348.
+Package pdftex.def Info: Figures/1000_IM-0003-1001.png used on input line 357.
 (pdftex.def)             Requested size: 85.35826pt x 104.02975pt.
-<Figures/8178-1000_IM-0003-1001.png, id=33, 513.92pt x 626.34pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
+[]\OT1/ptm/m/n/10 a: |Ori-gi-nal Ima-ge. $\OML/ztmcm/m/it/10 SSIM$\OT1/ptm/m/n/
+10 =1.0
+ []
+
+<Figures/8178-1000_IM-0003-1001.png, id=36, 513.92pt x 626.34pt>
 File: Figures/8178-1000_IM-0003-1001.png Graphic file (type png)
 <use Figures/8178-1000_IM-0003-1001.png>
 Package pdftex.def Info: Figures/8178-1000_IM-0003-1001.png used on input line 
-354.
+363.
 (pdftex.def)             Requested size: 85.35826pt x 104.02975pt.
-<Figures/pareto_1000_IM-0003-1001.png, id=34, 682.80093pt x 435.87843pt>
+
+Underfull \hbox (badness 4060) in paragraph at lines 364--364
+[]\OT1/ptm/m/n/10 b: |Re-sul-tant Ima-ge. $\OML/ztmcm/m/it/10 SSIM$\OT1/ptm/m/n
+/10 =0.8423
+ []
+
+<Figures/pareto_1000_IM-0003-1001.png, id=37, 682.80093pt x 435.87843pt>
 File: Figures/pareto_1000_IM-0003-1001.png Graphic file (type png)
 <use Figures/pareto_1000_IM-0003-1001.png>
 Package pdftex.def Info: Figures/pareto_1000_IM-0003-1001.png used on input lin
-e 360.
+e 369.
 (pdftex.def)             Requested size: 199.16928pt x 127.13976pt.
 
-Overfull \hbox (47.23003pt too wide) in paragraph at lines 360--361
+Overfull \hbox (47.23003pt too wide) in paragraph at lines 369--370
  [][] 
  []
 
 
-Overfull \hbox (10.00002pt too wide) in paragraph at lines 344--368
+Overfull \hbox (10.00002pt too wide) in paragraph at lines 353--379
 [][] 
  []
 
-[4
+[5
 
  </home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/Figures/100_IM-0002-1001.pn
 g> </home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/Figures/1182-100_IM-0002-
@@ -773,28 +814,22 @@ s/icip2015/paper-fpuna/Figures/11608-3715982_IJMPO-34-47-g001.png (PNG copy)> <
 -1001.png (PNG copy)> </home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/Figure
 s/8178-1000_IM-0003-1001.png (PNG copy)> </home/lg_more/MEGAsync/tesis/icip2015
 /paper-fpuna/Figures/pareto_1000_IM-0003-1001.png>] (/home/lg_more/MEGAsync/tes
-is/icip2015/paper-fpuna/main_en.bbl) [5
-
-] (/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.aux
+is/icip2015/paper-fpuna/main_en.aux
 LaTeX Info: Redefining \. on input line 21.
 LaTeX Info: Redefining \% on input line 21.
-)
-
-LaTeX Warning: There were multiply-defined labels.
-
- )
+) )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 209 ({)
+### simple group (level 1) entered at line 173 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 6144 strings out of 494907
- 90477 string characters out of 6177931
- 176708 words of memory out of 5000000
- 9196 multiletter control sequences out of 15000+600000
- 57267 words of font info for 127 fonts, out of 8000000 for 9000
+ 6146 strings out of 494907
+ 90535 string characters out of 6177931
+ 172701 words of memory out of 5000000
+ 9200 multiletter control sequences out of 15000+600000
+ 56845 words of font info for 125 fonts, out of 8000000 for 9000
  64 hyphenation exceptions out of 8191
- 38i,19n,38p,1748b,411s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,19n,38p,1749b,429s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -809,7 +844,7 @@ e/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf
 pe1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmri8a.pfb>
 Output written on /home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.pdf
- (5 pages, 1104265 bytes).
+ (5 pages, 1104355 bytes).
 PDF statistics:
  83 PDF objects out of 1000 (max. 8388607)
  52 compressed objects within 1 object stream

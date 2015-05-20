@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex main_en"] 1431892075 "main_en.aux" "main_en.bbl" "main_en" 1431892076
+["bibtex main_en"] 1432086519 "main_en.aux" "main_en.bbl" "main_en" 1432086561
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/ieeetr.bst" 1292289607 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "main_en.aux" 1431892076 4880 079162dc197d9106537dc736b78cc72b ""
+  "main_en.aux" 1432086520 5055 d3936123e60056a076fc0fef9bed4be6 ""
   "main_en.bcf" 0 -1 0 ""
-  "refs.bib" 1431826111 18538 8810ef6dba713e9c7d3b438a8a0e56a0 ""
+  "refs.bib" 1432083883 18780 3ac6a4319dec4f62d6fad47322968e61 ""
   (generated)
-  "main_en.bbl"
   "main_en.blg"
-["pdflatex"] 1431892075 "/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.tex" "/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.pdf" "main_en" 1431892076
+  "main_en.bbl"
+["pdflatex"] 1432086519 "/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.tex" "/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.pdf" "main_en" 1432086561
   "/etc/texmf/web2c/texmf.cnf" 1419387689 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.aux" 1431892076 4880 079162dc197d9106537dc736b78cc72b ""
-  "/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.tex" 1431892063 23217 ee3af309c6537854b74eb325c99a76e7 ""
+  "/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.aux" 1432086520 5055 d3936123e60056a076fc0fef9bed4be6 ""
+  "/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.tex" 1432086512 23939 e43eb2732cdebb940d1f4950b06d33f7 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -129,13 +129,13 @@
   "Figures/pareto_100_IM-0002-1001.png" 1431641311 29510 e4760fe9b0dffb6b463df826e57c01a2 ""
   "Figures/pareto_IJMPO-34-47-g001.png" 1431641199 32862 3fbabeb9e4da40c967221b704fbc5d36 ""
   "Figures/particula_clahe2.jpg" 1431839589 52047 937359e456027eac298b37fc3bbd5b9f ""
-  "main_en.aux" 1431892076 4880 079162dc197d9106537dc736b78cc72b ""
-  "main_en.bbl" 1431892075 4929 e2756dabe0ab20e16de9fb319bdf7ed4 "bibtex main_en"
-  "main_en.tex" 1431892063 23217 ee3af309c6537854b74eb325c99a76e7 ""
+  "main_en.aux" 1432086520 5055 d3936123e60056a076fc0fef9bed4be6 ""
+  "main_en.bbl" 1432086519 5126 3630a205026f20575e0bfca007369c42 "bibtex main_en"
+  "main_en.tex" 1432086512 23939 e43eb2732cdebb940d1f4950b06d33f7 ""
   "spconf.sty" 1415805874 8798 121ab5e33850ab4cf48fc2795d92b250 ""
   (generated)
-  "main_en.aux"
-  "main_en.log"
   "/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.pdf"
   "/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.log"
+  "main_en.log"
+  "main_en.aux"
   "main_en.pdf"
