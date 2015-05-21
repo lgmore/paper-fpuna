@@ -11,7 +11,7 @@
 			"file": "refs.bib",
 			"settings":
 			{
-				"buffer_size": 18535,
+				"buffer_size": 18777,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,7 +27,15 @@
 			"file": "main_en.tex",
 			"settings":
 			{
-				"buffer_size": 23207,
+				"buffer_size": 23929,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/lg_more/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 139,
 				"line_ending": "Unix"
 			}
 		}
@@ -227,30 +235,29 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18535,
+						"buffer_size": 18777,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6072,
-								6072
+								18777,
+								18777
 							]
 						],
 						"settings":
 						{
-							"WordCountShouldRun": true,
 							"WordCountSyntax": "bibtex",
 							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 284.0,
+						"translation.y": 6919.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -281,7 +288,7 @@
 						"translation.y": 561.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -290,15 +297,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 23207,
+						"buffer_size": 23929,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10939,
-								10939
+								11607,
+								11607
 							]
 						],
 						"settings":
@@ -310,10 +317,39 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3213.0,
+						"translation.y": 7914.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/lg_more/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 139,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4,
+								4
+							]
+						],
+						"settings":
+						{
+							"WordCountSyntax": "json",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
