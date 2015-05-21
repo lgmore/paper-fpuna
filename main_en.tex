@@ -39,7 +39,8 @@
 \def\x{{\mathbf x}}
 \def\L{{\cal L}}
 
-\setlength{\textfloatsep}{10pt plus 1.0pt minus 3.0pt}
+\setlength{\textfloatsep}{8pt plus 1.0pt minus 3.0pt}
+
 
 % Title.
 % ------
@@ -235,13 +236,16 @@ The \textbf{Algorithm \ref{alg:pso_clahe}} shows how Multi-objective PSO-CLAHE (
 \end{algorithm}
 
 \begin{minipage}[b]{1.0\linewidth}
+\setlength{\abovecaptionskip}{2pt plus 3pt minus 2pt} % Chosen fairly arbitrarily
   \vspace{0.4cm}
   \centering
   \centerline{\includegraphics[height=6cm]{Figures/particula_clahe2}}
   \vspace{0.4cm}
   \label{fig:particula_clahe}
   \captionof{figure}{Interaction among $CLAHE$, $MOPSO$ particle and objective functions evaluation.}
+  \vspace{-5pt}
 \end{minipage}
+
 
 \section{Results and Discussion}
 \label{sec:resultadosdiscusion}
@@ -250,6 +254,7 @@ The \textbf{Algorithm \ref{alg:pso_clahe}} shows how Multi-objective PSO-CLAHE (
 
 
 \begin{table}[h]
+\setlength{\abovecaptionskip}{2pt plus 3pt minus 2pt} % Chosen fairly arbitrarily
 \caption[Parámetros de entrada para $MOPSO$]{Initial parameters for MOPSO-CLAHE.}
 \begin{center}
  \begin{tabular}{||c c | c c||} 
@@ -277,20 +282,20 @@ $r_2$ $min$ & 0.0 & $r_2$ $max$ & 1.0 \\
 \label{table:parametrospso}
 \end{table}
 
-For every test image, 30 executions of MOPSO-CLAHE were performed. Approximately 300 non-dominated solutions were obtained for every image, which represents a wide group of images at different levels of contrast and distortion, thereby facilitating further analysis. In \textbf {Fig. 2,3,4} there are 2 non-dominated solutions in order to visually assess how contrast varies considering the original image as reference. In \textbf {Fig. 2a,3a,4a} are exposed the original images. The Pareto set are showed in \textbf {Fig. 2c,3c,4c} where is noteworthy that there is an inverse relationship between objective functions; i.e, when $\mathscr{H}$ is increased, the $SSIM$ coefficient decreases. This means that both metrics are complementary in order to maintain the compromise between contrast enhancement and distortion minimization. From the Pareto set it is possible to obtain images which allow to visualize different details while the contrast changes. It is also remarkable that the soft tissues are better seen in chest radiographs when certain contrast is reached (see \textbf {Fig. 2b,4b}). A similar effect is achieved in mammograms (see \textbf {Fig. 3b}), in which potential injuries are more visible, but the fine details are preserved successfully. In this proposal, a significant amount of resulting images are obtained, with different relations between contrast and distortion, in an automatic manner, which represents an advantage because it can lead to better diagnoses.
+For every test image, 30 executions of MOPSO-CLAHE were performed. Approximately 300 non-dominated solutions were obtained for every image.%, which represents a wide group of images at different levels of contrast and distortion, thereby facilitating further analysis.
+ In \textbf {Fig. 2,3,4} there are 2 non-dominated solutions in order to visually assess how contrast varies considering the original image as reference. In \textbf {Fig. 2a,3a,4a} are exposed the original images. The Pareto sets are showed in \textbf {Fig. 2c,3c,4c} where is noteworthy that there is an inverse relationship between objective functions; i.e, when $\mathscr{H}$ is increased, the $SSIM$ coefficient decreases. This means that both metrics are complementary in order to maintain the compromise between contrast enhancement and distortion minimization. From the Pareto set it is possible to obtain images which allow to visualize different details while the contrast changes. It is also remarkable that the soft tissues are better seen in chest radiographs when certain contrast is reached (see \textbf {Fig. 2b,4b}). A similar effect is achieved in mammograms (see \textbf {Fig. 3b}), in which potential injuries are more visible, but the fine details are preserved successfully. In this proposal, a significant amount of resulting images are obtained, with different relations between contrast and distortion, in an automatic manner, which represents an advantage because it can lead to better diagnoses.
 
 
 \section{conclusions}
 \label{sec:conclusion}
-A multi-objective meta-heuristic algorithm is presented which maximizes simultaneously contrast by means of Entropy and Structural Similarity Index; with the latter it is possible to minimize image distortion, in medical images context, specifically in chest radiographs and mammograms. Experimental results show a set of solutions at different contrast levels, and allowing to highlight different structures. This would allow medical specialists to handle different visualization options automatically, which is useful for diagnostics.
+A multi-objective meta-heuristic algorithm is presented which maximizes simultaneously contrast by means of Entropy and Structural Similarity Index; with the latter it is possible to minimize image distortion, in medical images context, specifically in chest radiographs and mammograms. Experimental results show a set of solutions at different contrast levels, allowing to highlight different structures. This would allow medical specialists to handle different visualization options automatically, which is useful for diagnostics.
 
 The authors are still executing tests with several images found in the search engine. As future work it might be useful to adopt new meta-heuristics, such as Multi-Objective Evolutionary Algorithms (MOEA)\cite{coello2002evolutionary}, and take into account metrics based on high order statistics, as seen in \cite{7056527}, and local saliency maps based metrics, as in \cite{LTG}.
 
 
 %\twocolumn
 %\bibliographystyle{IEEEbib}
-\bibliographystyle{ieeetr}
-\bibliography{refs}
+
 
 % References should be produced using the bibtex program from suitable
 % BiBTeX files (here: refs). The IEEEbib.bst bibliography
@@ -378,6 +383,10 @@ The authors are still executing tests with several images found in the search en
   \captionof{figure}{Results for a chest image.}
 
 \end{minipage}
+
+\twocolumn
+\bibliographystyle{ieeetr}
+\bibliography{refs}
 
 % \begin{minipage}[b]{1.0\linewidth}
 
