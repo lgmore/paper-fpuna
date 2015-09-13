@@ -1,0 +1,396 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					"Clean up Files"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Bibtex.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/LaTeXing/LaTeX.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 75.0,
+		"last_filter": "package control: inst",
+		"selected_items":
+		[
+			[
+				"package control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Package Control: Install Package"
+			],
+			[
+				"lat",
+				"LaTeXTools: Reconfigure and migrate settings"
+			],
+			[
+				"bui",
+				"Build: Build"
+			],
+			[
+				"",
+				"Code Folding: Unfold All"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 293.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main.tex",
+		"/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/refs.bib",
+		"/media/lg_more/Elements/DTP/Respuesta_HB.xml",
+		"/media/lg_more/Elements/DTP/resultado.html",
+		"/home/lg_more/MEGAsync/sinafocal/jueves 1120",
+		"/home/lg_more/MEGAsync/doctorado jlvazquez/typeinst/typeinst.tex",
+		"/home/lg_more/MEGAsync/tesis Loreley Stefanis/smpso_ls/algoritmo.properties",
+		"/media/lg_more/Elements/DTP/wsdl/FrontendService_Test.wsdl",
+		"/home/lg_more/MEGAsync/ayudantia/primer examen final/distribucion de grupos.txt",
+		"/home/lg_more/MEGAsync/ayudantia/puntos extra 2do parcial.txt",
+		"/home/lg_more/MEGAsync/ayudantia/segundo examen final/entrada.txt",
+		"/tmp/Scharr.m",
+		"/home/lg_more/MEGAsync/tesis/icip2015/Program 2015 IEEE International Conference on Image Processing, ICIP 2015 program.html",
+		"/tmp/frm/frm/FrmServs.log",
+		"/home/lg_more/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/lg_more/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/lg_more/MEGAsync/pronet/midLog.log",
+		"/home/lg_more/MEGAsync/ayudantia/2do examen parcial/datos1.csv",
+		"/media/lg_more/Elements/Pelis by kpovoc/Interstellar (2014)/Interstellar.2014.720p.BluRay.x264.YIFY.srt",
+		"/home/lg_more/MEGAsync/ayudantia/2do examen parcial/datos2.csv",
+		"/home/lg_more/Escritorio/Now You See Me (2013) [1080p]/Now.You.See.Me.2013.720p.BluRay.x264.YIFY.srt",
+		"/home/lg_more/MEGAsync/ayudantia/2do examen parcial/lista de dominios",
+		"/home/lg_more/MEGAsync/ayudantia/2do examen parcial/datos1.txt.csv",
+		"/home/lg_more/MEGAsync/ayudantia/2do examen parcial/distribucion de grupos.txt",
+		"/home/lg_more/MEGAsync/ayudantia/2do examen parcial/2014-12-01-full.csv",
+		"/home/lg_more/MEGAsync/ayudantia/2do examen parcial/miGetLine.c",
+		"/home/lg_more/MEGAsync/ayudantia/2do examen parcial/ejercicio2.c",
+		"/home/lg_more/MEGAsync/ayudantia/2do examen parcial/ejercicio1.c",
+		"/home/lg_more/MEGAsync/ayudantia/clase refuerzo/ejercicio archivos",
+		"/home/lg_more/MEGAsync/ayudantia/clase refuerzo/notas2.csv",
+		"/home/lg_more/MEGAsync/ayudantia/actividades ayudantia.txt",
+		"/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/main_en.tex",
+		"/home/lg_more/MEGAsync/ayudantia/clase refuerzo/miGetLine.c",
+		"/tmp/notas.csv",
+		"/media/lg_more/CVALDEZ/tarea11.c",
+		"/home/lg_more/.config/sublime-text-3/Packages/WordCount/WordCount.sublime-settings",
+		"/home/lg_more/.config/sublime-text-3/Packages/User/WordCount.sublime-settings",
+		"/tmp/javaee7-angular-1.0/src/main/java/com/cortez/samples/javaee7angular/pagination/PaginatedListWrapper.java",
+		"/tmp/javaee7-angular-1.0/src/main/webapp/script/person.js",
+		"/home/lg_more/MEGAsync/tesis/paper/paper ccis 2014 editado/new-jcis-template.tex",
+		"/home/lg_more/MEGAsync/tesis/icip2015/paper-fpuna/README.md",
+		"/home/lg_more/MEGAsync/tesis/implementacion/jMetalTesis/Nuevo Tesis/algoritmo.properties",
+		"/home/lg_more/MEGAsync/tesis/implementacion/jMetalTesis/jMetal Practica/jmetal/metaheuristics/smpso/SMPSOTesis_main.java",
+		"/home/lg_more/MEGAsync/tesis/implementacion/jMetalTesis/jMetal Practica/jmetal/core/SolutionSet.java",
+		"/home/lg_more/MEGAsync/tesis/implementacion/jMetalTesis/jMetal Practica/jmetal/problems/tesis/Tesis.java",
+		"/home/lg_more/MEGAsync/tesis/libro/CUEDThesisPSnPDF/Introduction/introduction.tex",
+		"/home/lg_more/MEGAsync/tesis/libro/CUEDThesisPSnPDF/Chapter2/chapter2.tex",
+		"/home/lg_more/MEGAsync/tesis/libro/CUEDThesisPSnPDF/Chapter1/chapter1.tex",
+		"/home/lg_more/.config/sublime-text-3/Packages/Git/Git.sublime-settings",
+		"/home/lg_more/.config/sublime-text-3/Packages/User/Git.sublime-settings",
+		"/home/lg_more/MEGAsync/tesis/icip2015/repo/main.tex",
+		"/home/lg_more/MEGAsync/tesis/icip2015/corridas_chest.csv",
+		"/home/lg_more/Dropbox/tesis/paper/workshop de tesis/unix_latex_template/bare_conf.tex",
+		"/home/lg_more/Dropbox/tesis/paper/paper ccis 2014 editado/presentacion/main.tex",
+		"/home/lg_more/Dropbox/tesis/paper/paper ccis 2014 editado/new-jcis-template.tex",
+		"/home/lg_more/Dropbox/tesis/libro/CUEDThesisPSnPDF/thesis.tex",
+		"/home/lg_more/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
+		"/home/lg_more/.config/sublime-text-3/Packages/User/LaTeXTools.sublime-settings",
+		"/home/lg_more/Dropbox/tesis/paper/workshop de tesis/unix_latex_template/bibtesis.bib",
+		"/home/lg_more/Dropbox/tesis/paper/workshop de tesis/unix_latex_template/bare_conf_corregido.tex",
+		"/home/lg_more/Dropbox/tesis/paper/workshop de tesis/unix_latex_template/bare_conf.bbl",
+		"/home/lg_more/Dropbox/tesis/paper/workshop de tesis/unix_latex_template/test.tex",
+		"/home/lg_more/Dropbox/tesis/paper/workshop de tesis/unix_latex_template/references.bib",
+		"/home/lg_more/Dropbox/tesis/paper/workshop de tesis/unix_latex_template/IEEEtran.cls",
+		"/home/lg_more/Dropbox/tesis/paper/workshop de tesis/unix_latex_template/bare_conf.log",
+		"/home/lg_more/Dropbox/tesis/paper/workshop de tesis/unix_latex_template/bare_conf.aux",
+		"/home/lg_more/Dropbox/tesis/paper/workshop de tesis/unix_latex_template/bibi.bib",
+		"/home/lg_more/Dropbox/tesis/paper/workshop de tesis/unix_latex_template/bare_jrnl.tex",
+		"/home/lg_more/VirtualBox VMs/win722/win722.vbox",
+		"/home/lg_more/VirtualBox VMs/win722/win722.vbox-prev",
+		"/run/user/1000/gvfs/mtp:host=%5Busb%3A002%2C005%5D/Tarjeta SD/download/new-jcis-template.tex"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			",",
+			" ",
+			"\\n",
+			"\\r\\n",
+			"tinytable",
+			"citibankrrff",
+			" ",
+			"Program",
+			"Room",
+			"Monday",
+			"Wednesday",
+			"Tuesday",
+			"Monday",
+			"Sunday",
+			"program",
+			"2015-06-26 10:30",
+			"20150626100059000009",
+			"2015-06-26",
+			"cesar valdez",
+			"\\n",
+			", ",
+			" ",
+			",",
+			".jpg",
+			".png",
+			"table",
+			"radiographies",
+			"imagery",
+			"algoritmo",
+			"gray level",
+			"gray scales",
+			"grayscales",
+			"frente ",
+			"Omega",
+			"16",
+			"especialista",
+			"delta",
+			"particula_clahe",
+			"\\eqref",
+			"Algoritmo",
+			"{\\textbf",
+			"Figura",
+			"SMPSO",
+			"en las figuras ",
+			"particle",
+			"\\nocite{*}",
+			"\\medskip",
+			".",
+			"subsection",
+			",",
+			"original images ",
+			"[h]",
+			"[H]",
+			"usepackage",
+			"\\cite{byong}",
+			"\\cite"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			".",
+			"",
+			"\\t",
+			"",
+			"\\t",
+			"Sala",
+			"Miércoles",
+			"Martes",
+			"Lunes",
+			"Domingo",
+			"\\ncuad",
+			"\\ncuadrilla",
+			",\\n",
+			"\\n",
+			"",
+			"\\n",
+			".eps",
+			"radiographs",
+			"particula_clahe2",
+			"\\textbf {Fig.}",
+			"{\\textbf Fig.}",
+			",",
+			"\\t",
+			"[h]"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 238.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 143.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 112.0
+	},
+	"pinned_build_system": "",
+	"project": "poster-icip.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Dropbox/tesis/paper/workshop de tesis/unix_latex_template/paper-workshop.sublime-project"
+			]
+		],
+		"width": 604.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+
+\bibitem{Zuiderveld:1994:CLA:180895.180940}
+Karel Zuiderveld.
+\newblock Contrast limited adaptive histogram equalization.
+\newblock {\em Graphics Gems IV}, pages 474--485, 1994.
+
+\bibitem{byong2013}
+Byong~Seok Min, Dong~Kyun Lim, Seung~Jong Kim, and Joo~Heung Lee.
+\newblock A novel method of determining parameters of clahe based on image
+  entropy.
+\newblock {\em International Journal of Software Engineering and Its
+  Applications}, 7(5):113--120, September 2013.
+
+\end{thebibliography}
