@@ -18,33 +18,58 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[a0,landscape,spanish]{a0poster}
+\documentclass[a0,landscape,spanish,20pt]{a0poster}
 
-\usepackage[spanish, mexico]{babel}
-\selectlanguage{spanish}
+\newcommand{\anchoFigura}{0.48}
+\newcommand{\anchoFiguraPareto}{0.75}
+% Include the helvet package
+\usepackage{helvet}
+
+% Set the default font to be palatino
+\renewcommand{\sfdefault}{ppl}
+%\usepackage[]{algorithm}
+\usepackage{algpseudocode}
+%S\usepackage[spanish, mexico]{babel}
+%\selectlanguage{spanish}
 \usepackage[utf8]{inputenc}
-\usepackage{float}
+%\usepackage{float}
 \usepackage{mathrsfs}
-\usepackage{mathtools}
+\usepackage{amsmath}
 \usepackage{ragged2e}
 \usepackage{multicol} % This is so we can have multiple columns of text side-by-side
 \columnsep=100pt % This is the amount of white space between the columns in the poster
 \columnseprule=3pt % This is the thickness of the black line between the columns in the poster
-
+\usepackage{vwcol}  
 \usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
 
-\usepackage{times} % Use the times font
-%\usepackage{palatino} % Uncomment to use the Palatino font
+%\usepackage{times} % Use the times font
+\usepackage{palatino} % Uncomment to use the Palatino font
 
 \usepackage{graphicx} % Required for including images
 \graphicspath{{figures/}} % Location of the graphics files
 \usepackage{booktabs} % Top and bottom rules for table
-\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+\usepackage[font=Large,labelfont=bf]{caption} % Required for specifying captions to tables and figures
 \usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
 \usepackage{wrapfig} % Allows wrapping text around tables and figures
 
 \usepackage{titlesec}
-\titlespacing*{\section}{0pt}{0.85\baselineskip}{\baselineskip}
+\usepackage{framed}
+\usepackage[Large,bf, raggedright]{subfigure} % subfiguras
+\usepackage{subfig}
+\usepackage{floatrow}
+\usepackage{pgfplots}
+\usepackage[eulergreek]{sansmath}
+\pgfplotsset{compat=1.3, width=70mm, height=60mm}
+\pgfplotsset{
+tick label style = {font=\sansmath\sffamily},
+every axis label = {font=\sansmath\sffamily},
+legend style = {font=\sansmath\sffamily},
+label style = {font=\sansmath\sffamily}
+}
+
+\titlespacing*{\section}{0pt}{10pt}{0pt}
+\definecolor{shadecolor}{rgb}{0.196078431,0.278431373,0.462745098}
+\newcommand*{\bigH}{\scalebox{1.5}{\ensuremath{\mathscr{H}}}}
 
 \begin{document}
 
@@ -56,18 +81,33 @@
 % The first is 75% wide and houses the title, subtitle, names, university/organization and contact information
 % The second is 25% wide and houses a logo for your university/organization or a photo of you
 % The widths of these boxes can be easily edited to accommodate your content as you see fit
+ 
+\begin{minipage}[b]{1\linewidth}
+\begin{minipage}{0.08\linewidth}
+\includegraphics[width=1\columnwidth]{figures/photo.jpg}
+\end{minipage}
+\begin{minipage}{0.8\linewidth}
+\begin{shaded}
+\centering
+\Huge \color{White} \fontfamily{phv} \textbf{Multi-objective optimization based on parameter tuning of CLAHE to achieve different contrast levels in medical images}\\ [0.5cm]% Title
+                                             \Large \textbf{Luis G. Moré, Marcos Brizuela, José L. Vázquez, Diego Pinto, Horacio Legal, } 
+\Large \textit{Facultad Politécnica - Universidad Nacional de Asunción}
+\end{shaded}
+\end{minipage}
+\begin{minipage}{0.08\linewidth}
+\centering
+\includegraphics[width=1\columnwidth]{figures/qrcode.jpg}
+\end{minipage}
 
-\begin{minipage}[b]{0.75\linewidth}
-\veryHuge \color{NavyBlue} \textbf{MULTI-OBJECTIVE OPTIMIZATION BASED ON PARAMETER TUNING OF CLAHE TO ACHIEVE DIFFERENT CONTRAST LEVELS IN MEDICAL IMAGES} \color{Black}\\[2ex] % Title
-%\Huge\textit{An Exploration of Complexity}\\[2cm] % Subtitle
-\huge \textbf{Luis G. Moré, Marcos Brizuela, José L. Vázquez, Diego Pinto, Horacio Legal}\\[0.5cm] % Author(s)
-\huge Facultad Politécnica - Universidad Nacional de Asunción% University/organization
-%\Large \texttt{john@LaTeXTemplates.com} --- 1 (000) 111 1111\\
+
 \end{minipage}
+
+\line(1,0){3100}
+
 %
-\begin{minipage}[b]{0.25\linewidth}
-\includegraphics[width=19cm]{photo.jpg}\\
-\end{minipage}
+%\begin{minipage}[b]{0.25\linewidth}
+%\includegraphics[width=19cm]{photo.jpg}\\
+%\end{minipage}
 
 %\vspace{0.5cm} % A bit of extra whitespace between the header and poster content
 
@@ -75,145 +115,135 @@
 
 \begin{multicols}{3} % This is how many columns your poster will be broken into, a portrait poster is generally split into 2 columns
 
-%----------------------------------------------------------------------------------------
-%	ABSTRACT
-%----------------------------------------------------------------------------------------
-
-\color{Navy} % Navy color for the abstract
-
 
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
 %----------------------------------------------------------------------------------------
 
-\color{SaddleBrown} % SaddleBrown color for the introduction
+%\color{SaddleBrown} % SaddleBrown color for the introduction
 
-\section*{Motivación}
+\section*{ \begin{shaded} \color{White} \huge \centering Introduction \end{shaded}}
 
-Las imágenes con problemas de contraste necesitan de transformaciones que logren que las mismas sean útiles para análisis posteriores u otras aplicaciones. Ésto es particularmente crítico en imágenes médicas y biométricas, en las que se necesita preservar los detalles finos para mantener la información sensible contenida en éstas, a la vez que se logre resaltar detalles difíciles de percibir. Es necesario lograr la mejora del contraste sin degradar la calidad de la imagen que se transforma.
+
+
+{ \Large 
+
+\color{Black}
+
+Contrast of medical images show particular contrast features, because there might be notorious contrast differences because of the attenuation characteristics of X-Rays. 
+
+Local improvement approaches prove to be extremely useful when enhancing details in medical images. In our proposal a meta-heuristic for optimization will be used, in order to tune input parameters of the contrast enhancement algorithm. \medskip
+
+\textbf{Objective: }Obtain images with different relationships between contrast and distortion, in order to highlight different features, which is useful for analysis performed by the specialist. 
+
+
+
+}
+
 \color{Black} % DarkSlateGray color for the rest of the content
-\section*{Conceptos Básicos}
 
-\begin{enumerate}
-\item{\it \textbf{CLAHE}}: Para mejorar el contraste de una imagen, se ha escogido el algoritmo Contrast Limited Adaptive Histogram Equalization ($CLAHE$), que es un algoritmo de mejora de contraste local basado en la división de la imagen en bloques y la ecualización del histograma de cada bloque de forma independiente, propuesto en \cite{Zuiderveld:1994:CLA:180895.180940}. %$CLAHE$ ha demostrado tener buenos resultados principalmente en el procesamiento de imágenes con bajo contraste \cite{balvant2011} e imágenes médicas \cite{saikat2011,shelda2013}, debido a que en este tipo de imagen se priorizan los detalles locales de una imagen.
+\section*{ \begin{shaded} \color{White} \huge \centering Method \end{shaded}}
 
+{ \Large
+\color{Black}
 
-\item {\it \textbf{Entropía}}: Es un coeficiente asociado con el aumento de la información contenida en una imagen como consecuencia del aprovechamiento de los niveles de gris disponibles para la representación de la misma. Al maximizar la Entropía de la imagen, también se aumenta el contraste que posee. 
+\begin{wrapfigure}{r}{0.6\linewidth}
+\vspace{-1pt}
+\hspace{-1pt}
+\centering
+\includegraphics[{width=\linewidth}]{figures/particula_clahe3.png}
+\caption{ \Large Interaction among $CLAHE$, $MOPSO$ particle and objective functions evaluation.}
+\label{fig:particula_clahe}
+\end{wrapfigure}
 
-\item {\it \textbf{Índice de Similitud Estructural}}: El Índice de Similitud Estructural ($SSIM$ por sus siglas en inglés Structural SIMilarity Index) es un coeficiente que permite evaluar los cambios producidos en la información estructural de una imagen luego de haber sufrido alguna modificación. Esta métrica da como resultado una buena medida de la distorsión o degradación estructural de la imagen que puede ser producida por cualquier algoritmo de mejora de imágenes.
+The Figure \ref{fig:particula_clahe} shows how Multi-objective PSO-CLAHE ($MOPSO-CLAHE$) based on $SMPSO$ is implemented to tune the parameters of CLAHE. The resulting images are automatically evaluated according to the metrics $Entropy$ ($\bigH$) and $SSIM$, and the best results measured by these shape a Pareto set for the image being processed. 
 
-\item{\it \textbf{PSO}}: La \textit{Optimización de Enjambre de Partículas} es un algoritmo metaheurístico de optimización, capaz de explorar un amplio espacio de búsqueda. Las partículas almacenan la mejor solución que encuentran durante la búsqueda, y el enjambre almacena la mejor solución global. Las partículas se van moviendo hacia la solución más óptima a su propio ritmo. El enjambre termina de moverse cuando encuentran la mejor solución o una muy cercana a ella debido a que se ha llegado a un criterio de parada.
+}
 
-\begin{center}\vspace{0.5cm}
-\includegraphics[width=0.55\linewidth]{particula_clahe}
-\captionof{figure}{\color{Green} Esquema de evaluación de cada partícula durante la búsqueda de la solución.}
-\label{esquema_evaluacion_pso_clahe}
-\end{center}\vspace{0.5cm}
+\section*{ \begin{shaded} \color{White} \huge \centering Results \end{shaded}}
 
-\end{enumerate}
+%----------------------------------------------------------------------------------------
+%   MATERIALS AND METHODS
+%----------------------------------------------------------------------------------------
+\color{Black} % DarkSlateGray color for the rest of the content
 
-\section*{Formulación}
+{ \Large
 
-Dadas la imagen de entrada $I$ y el algoritmo $CLAHE$, se desea calcular la mejor solución $f(T)$ que maximice:
-
-\begin{equation*}\label{eq:fitness}
-    f(T) = f_1(T) \times f_2(I,T)
-\end{equation*}
-
-donde:
 \begin{itemize}
-%\item $\overrightarrow{x}=(\mathcal{R}_x, \mathcal{R}_y, \mathcal{C})$, donde $\mathcal{R}_x$ y $\mathcal{R}_y$ conforman la región contextual y $\mathscr{C}$ es el Clip Limit.
-\item $f_{1}(T)=\frac{\mathscr{H}(T)}{log_{2}L}$ es la Entropía normalizada de la imagen $T$, siendo $T$ la imagen mejorada por $CLAHE$.
-\item $f_{2}(I,T)=SSIM(I,T)$ es el Índice de Similitud Estructural.
 
-\item $I$ = Imagen Original.
-\item $T$ = Imagen con contraste mejorado.
+\item For every selected test image (http://openi.nlm.nih.gov/), 30 executions of $MOPSO-CLAHE$ were performed, with populations composed by 100 particles, and 100 iterations for every execution. Every particle (potential solution) is automatically evaluated by $MOPSO-CLAHE$ according to the metrics adopted.
+\item Approximately 300 non-dominated solutions were obtained for every image.
+\item Every non-dominated solution is an image with different compromise between \textit{Entropy} and \textit{SSIM}, as it can be seen in Figure \ref{fig:resultado_chest}(c) and Figure \ref{fig:resultado_mammogram}(c).
+\item Fine details of images are preserved, as in Figure \ref{fig:resultado_mammogram}(b), \ref{fig:resultado_mammogram}(c)  and main characteristics are highlighted, as in Figure \ref{fig:resultado_chest}(b). 
+%\item The pareto sets for those images are shown in Figure \ref{fig:resultado_mammogram} and Figure \ref{fig:resultado_chest}.
+
 \end{itemize}
 
-\color{DarkSlateGray} % Set the color back to DarkSlateGray for the rest of the content
-
-
-\section*{Propuesta}
-
-La propuesta consiste en utilizar un algoritmo de mejora de contraste por bloques (Contrast Limited Adaptive Histogram Equalization - $CLAHE$) el cual posee ciertos parámetros de entrada que necesitan de optimización, de manera a lograr maximizar la mejora del contraste, minimizando la distorsión introducida. Para encontrar éstos parámetros se utiliza una metaheurística (Particle Swarm Optimization - $PSO$) que permite realizar una búsqueda eficiente, además de que permite evaluar los resultados obtenidos durante la exploración utilizando una función de adaptación $f(T)$ , que está compuesta por dos métricas (Entropía e Índice de Similitud Estructural) que logran medir cuánta mejora en el contraste se logró, y cuánta distorsión se introdujo, respectivamente. En la Figura \ref{esquema_evaluacion_pso_clahe} se muestra la interacción entre las partículas de $PSO$, el algoritmo de $CLAHE$, y cómo se efectúa la evaluación de resultados.
-
-
-%\section*{Propuesta}
-%    \begin{itemize}\justifying
-%    \item Para optimizar $f(T)$ se utiliza la Optimización de Enjambre de Partículas, el cual consiste  en un algoritmo metaheurístico de optimización, capaz de explorar un amplio espacio de búsqueda.
-%    \item Evaluar la calidad de las soluciones posibles de tal forma a que la imagen resultante posea la mayor cantidad de información posible y el menor grado de distorsión.
-%    \item Para ello, se maximizará la Entropía de la imagen y se maximizará el Índice de Similitud Estructural $SSIM$.
-%    \end{itemize}
-
-
-%\begin{figure}[h!]\centering
-%    \includegraphics[height=6.5cm]{flujo}
-%\caption{Diagrama de flujo básico de $PSO$.}
-%\end{figure}
-
-
-%----------------------------------------------------------------------------------------
-%	MATERIALS AND METHODS
-%----------------------------------------------------------------------------------------
-\color{Black} % DarkSlateGray color for the rest of the content
-\section*{Resultados}
-
-Para validar los resultados obtenidos por $PSO-CLAHE$, se implementó el enfoque propuesto por Byong Seok Min \cite{byong2013}. Los resultados se muestran en las Figuras \ref{fig:resultado_chest}, \ref{fig:resultado_lenna} y \ref{fig:resultado_iris} para la comparación visual, y en la Figura \ref{fig:resultado_metricas} para la comparación de resultados de métricas:
+}
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=11cm]{chestoriginal}
-    \hspace{1pt}
-    \includegraphics[width=11cm]{chestclahe}
-    \hspace{1pt}
-    \includegraphics[width=11cm]{chestclahelicen}
-  
+\centering
+\subfigure[]{\includegraphics[width=0.48\columnwidth]{figures/100_IM-0002-1001.eps}}
+\hspace{1pt}
+\subfigure[]{\includegraphics[width=0.48\columnwidth]{figures/1182-100_IM-0002-1001.eps}} \\[5pt]
 
-  \caption{\textbf{Imagen de radiografía de tórax.} \\
-(a) Original. (b) $PSO-CLAHE$. $f(T)$=0,8224 (c) Byong. $f(T)$=0,496}
+\subfigure[]{
+
+\pgfplotsset{every axis/.append style={
+thick,
+tick style={semithick}}}
+\begin{tikzpicture}
+\begin{axis}[height=12cm, width=0.95\columnwidth, xlabel={Entropy}, ylabel={SSIM},domain = 0:1, xtick={0.85, 0.87, 0.90,0.93,0.95,0.97, 0.985,1.0},
+ytick={0.0,0.2,0.4,0.6,0.8,1.0}]
+\addplot+[
+only marks,
+scatter,
+mark=halfcircle*,
+mark size=2.9pt]
+table[meta=label]
+{scattered_example.dat};
+\end{axis}
+\end{tikzpicture}
+
+
+}
+
+
+\caption{(a) Original Image. $SSIM$=1.0  \protect\bigH=0.8536 (b) Resultant image. $SSIM$=0.9688 \protect\bigH=0.7922 (c) Pareto set related to this image.}
 \label{fig:resultado_chest}
 \end{figure}
 
 \begin{figure}[H]
-\centering
-\captionsetup{justification=centering}
- \includegraphics[width=10.5cm]{Camionoriginal.jpg}
- \hspace{0.1pt}
- \includegraphics[width=10.5cm]{Camionclahe.jpg}
- \hspace{0.1pt}
- \includegraphics[width=10.5cm]{Camionclahelicen.jpg}
- \caption{\textbf{Comparación de resultados para una imagen miscelánea.} \\
-(a) Original. (b) $PSO-CLAHE$. $f(T)$=0,7607 (c) Byong. $f(T)$=0,4690}
-\label{fig:resultado_lenna}
-\end{figure}
+\subfigure[]{\includegraphics[width=0.3\columnwidth]{figures/3715982_IJMPO-34-47-g001.eps}}
+\hspace{1pt}
+\subfigure[]{\includegraphics[width=0.3\columnwidth]{figures/11608-3715982_IJMPO-34-47-g001.eps}}
+\hspace{1pt}
+\subfigure[]{\includegraphics[width=0.3\columnwidth]{figures/11487-3715982_IJMPO-34-47-g001.png}}
 
-\begin{figure}[H]
-    \centering
-    \captionsetup{justification=centering}
-    \includegraphics[width=11cm]{retina2original.jpg}
-    \hspace{1pt}
-    \includegraphics[width=11cm]{retina2clahe.jpg}
-    \hspace{1pt}
-    \includegraphics[width=11cm]{retina2clahelicen.jpg}
-  
-  \caption{\textbf{Comparación de resultados para una imagen biométrica.} \\
-(a) Original. (b) $PSO-CLAHE$. $f(T)$=0,7683 (c) Byong. $f(T)$=0,5356}
-\label{fig:resultado_iris}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[height=8cm]{grafica1}
-    \hspace{1pt}
-    \includegraphics[height=8cm]{grafica2}
-    \hspace{1pt}
-    \includegraphics[height=8cm]{grafica3}
-    \hspace{1pt}
 
-  
-  \caption{(a) Comparación de Entropía entre resultados para $PSO-CLAHE$ y Byong (b) Compararación de $SSIM$ entre $PSO-CLAHE$ y Byong (c) Comparación de $f(T)$ entre $PSO-CLAHE$ y Byong.}
-\label{fig:resultado_metricas}
-\end{figure}
+\subfigure[]{
 
+\pgfplotsset{every axis/.append style={
+thick,
+tick style={semithick}}}
+\begin{tikzpicture}
+\begin{axis}[height=12cm, width=0.95\columnwidth, xlabel={Entropy}, ylabel={SSIM},domain = 0:1, xtick={0.60,0.70,0.80,0.85,0.90,0.95,1.0},
+ytick={0.0,0.2,0.4,0.6,0.8,1.0}]
+\addplot+[
+only marks,
+scatter,
+mark=halfcircle*,
+mark size=2.9pt]
+table[meta=label]
+{scattered_chest.dat};
+\end{axis}
+\end{tikzpicture}
+
+}
+
+\caption{ (a) Mammography. $SSIM$=1.0 \protect\bigH=0.6235 (b) Resultant image. $SSIM$=0.8032 \protect\bigH=0.8549 (c) Resultant image. $SSIM$=0.6121 \protect\bigH=0.91393 (d) Pareto set related to this image.}
+\label{fig:resultado_mammogram}
+\end{figure}
 
 %------------------------------------------------
 
@@ -221,66 +251,28 @@ Para validar los resultados obtenidos por $PSO-CLAHE$, se implementó el enfoque
 \color{DarkSlateGray} % Set the color back to DarkSlateGray for the rest of the content
 
 
-\section*{Conclusiones}
+\section*{\begin{shaded} \color{White} \huge \centering Conclusions \end{shaded}}
 
+{
+\Large
 \begin{itemize} \justifying
-
-
-\item Los resultados de todas las imágenes para $PSO-CLAHE$ muestran una clara mejora en el contraste, manteniendo la apariencia natural de las mismas.
-
-%\item $PSO-CLAHE$ puede recorrer el espacio de búsqueda más ampliamente que la propuesta de Byong, debido a que Byong acota el dicho espacio de búsqueda y $PSO-CLAHE$ toma el espacio completo. 
-
-
-\item El aporte más importante del trabajo es la utilización efectiva  de $CLAHE$, $PSO$ y unas métricas de evaluación de resultados (Entropía y $SSIM$) que permiten la mejora del constraste en imágenes en escala de grises, sin introducir una distorsión apreciable en las mismas. 
-
-
+\item $MOPSO-CLAHE$ approach is successful at contrast enhancement, by tuning $CLAHE$ input parameters, and evaluating $Entropy$ (contrast) and $SSIM$ (Image quality assessment) simultaneously.
+\item The pareto sets show a compromise between $Entropy$  and $SSIM$  in terms of maximization, which indicates that both metrics are complementary.
+\item \textbf{Future work:} Test optimization-based contrast enhancement using new metaheuristics, IQA metrics, and public image databases. Establish new compromises between metrics, analytically and using pareto sets.
 \end{itemize} 
 
+}
 
-%----------------------------------------------------------------------------------------
-%	RESULTS 
-%----------------------------------------------------------------------------------------
-
-\section*{Trabajos Futuros}
-
-
-\begin{itemize}\justifying
-
-\item Utilizar una implementación multi-objetivo de $PSO$, de manera a introducir objetivos que se consideren adecuados para la mejora del contraste.
-
-%\item Encontrar otros casos prácticos de manera a validar los resultados obtenidos por $PSO-CLAHE$.
-
-\item Realizar modificaciones al algoritmo de $CLAHE$ de manera a que se tengan en cuenta múltiples ventanas de tamaños variables durante la optimización con $PSO$.
-
-\item Realizar una implementación de $PSO-CLAHE$, o una combinación de metaheurística con una técnica de mejora del contraste adaptada para imágenes a color.
-\end{itemize} 
+%\section*{\begin{shaded} \color{White} \huge \centering Acknowledgments and info \end{shaded}}
+%\centering
+%\frame{\includegraphics[width=0.21\columnwidth]{figures/photo.jpg}}
+%\hspace{1pt}
+%\frame{\includegraphics[width=0.21\columnwidth]{figures/qrcode.jpg}}
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
 %----------------------------------------------------------------------------------------
 
-
-%----------------------------------------------------------------------------------------
-%	FORTHCOMING RESEARCH
-%----------------------------------------------------------------------------------------
-
- %----------------------------------------------------------------------------------------
-%	REFERENCES
-%----------------------------------------------------------------------------------------
-
-%\nocite{*} % Print all references regardless of whether they were cited in the poster or not
-\bibliographystyle{unsrt}
-\bibliography{sample.bib}
-
-%----------------------------------------------------------------------------------------
-%	ACKNOWLEDGEMENTS
-%----------------------------------------------------------------------------------------
-
-%\section*{Reconocimientos}
-
-%Etiam fermentum, arcu ut gravida fringilla, dolor arcu laoreet justo, ut imperdiet urna arcu a arcu. Donec nec ante a dui tempus consectetur. Cras nisi turpis, dapibus sit amet mattis sed, laoreet.
-
-%----------------------------------------------------------------------------------------
 
 \end{multicols}
 \end{document}
